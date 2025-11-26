@@ -31,7 +31,7 @@ export default function Header() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-gray-900/95 backdrop-blur-md shadow-lg'
+          ? 'glass-strong shadow-2xl shadow-primary-500/10'
           : 'bg-transparent'
       }`}
     >
@@ -39,7 +39,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <motion.a
             href="#home"
-            className="text-2xl font-bold text-white hover:text-primary-400 transition-colors"
+            className="text-2xl font-bold gradient-text"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -52,11 +52,12 @@ export default function Header() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-primary-400 transition-colors relative group"
+                className="text-gray-300 hover:text-white transition-all relative group px-2 py-1"
                 whileHover={{ y: -2 }}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-400 transition-all group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-purple-400 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
               </motion.a>
             ))}
           </div>
@@ -76,13 +77,13 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 space-y-4 pb-4"
+            className="md:hidden mt-4 space-y-4 pb-4 glass rounded-lg p-4"
           >
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block text-gray-300 hover:text-primary-400 transition-colors"
+                className="block text-gray-300 hover:text-white hover:bg-primary-500/10 rounded-lg px-4 py-2 transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

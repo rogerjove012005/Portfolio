@@ -39,16 +39,37 @@ export default function Skills() {
   })
 
   return (
-    <section id="skills" ref={ref} className="py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-12"
+    <section id="skills" ref={ref} className="py-20 px-4 relative">
+      <div className="container mx-auto max-w-7xl">
+        <motion.div
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          Habilidades <span className="text-primary-400">Técnicas</span>
-        </motion.h2>
+          <motion.span
+            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass px-4 py-2 rounded-full mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.2 }}
+          >
+            Tecnologías
+          </motion.span>
+          <motion.h2
+            className="text-4xl md:text-6xl font-bold text-white mb-4"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.3 }}
+          >
+            Habilidades <span className="gradient-text">Técnicas</span>
+          </motion.h2>
+          <motion.div
+            className="w-24 h-1 bg-gradient-primary mx-auto rounded-full"
+            initial={{ width: 0 }}
+            animate={inView ? { width: 96 } : {}}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          />
+        </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {skills.map((skill, index) => {
@@ -56,24 +77,32 @@ export default function Skills() {
             return (
               <motion.div
                 key={skill.name}
-                className="bg-gray-800/50 p-6 rounded-lg hover:bg-gray-800 transition-colors"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
+                className="group relative glass rounded-2xl p-6 overflow-hidden"
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1, type: "spring" }}
+                whileHover={{ y: -10, scale: 1.05 }}
               >
-                <div className="flex flex-col items-center space-y-4">
-                  <Icon className="text-5xl text-primary-400" />
-                  <h3 className="text-white font-semibold">{skill.name}</h3>
-                  <div className="w-full bg-gray-700 rounded-full h-2">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative z-10 flex flex-col items-center space-y-4">
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Icon className="text-6xl text-transparent bg-clip-text bg-gradient-to-br from-primary-400 to-purple-400" />
+                  </motion.div>
+                  <h3 className="text-white font-semibold text-lg">{skill.name}</h3>
+                  <div className="w-full bg-gray-800/50 rounded-full h-3 overflow-hidden">
                     <motion.div
-                      className="bg-primary-500 h-2 rounded-full"
+                      className="h-full bg-gradient-to-r from-primary-500 to-purple-500 rounded-full relative overflow-hidden"
                       initial={{ width: 0 }}
                       animate={inView ? { width: `${skill.level}%` } : {}}
-                      transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-                    />
+                      transition={{ duration: 1.5, delay: index * 0.1 + 0.3, ease: "easeOut" }}
+                    >
+                      <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+                    </motion.div>
                   </div>
-                  <span className="text-gray-400 text-sm">{skill.level}%</span>
+                  <span className="text-primary-400 text-sm font-bold">{skill.level}%</span>
                 </div>
               </motion.div>
             )

@@ -136,3 +136,6 @@ Tu Nombre - email@example.com
 
 Enlace del proyecto: [https://github.com/tu-usuario/portfolio](https://github.com/tu-usuario/portfolio)
 
+#$env:PATH += ";C:\Program Files\nodejs"; npm run dev
+
+#$Get-Process -Id 13192 | Stop-Process -Force
