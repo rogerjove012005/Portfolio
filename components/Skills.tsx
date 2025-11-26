@@ -48,7 +48,7 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass px-4 py-2 rounded-full mb-4"
+            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass-blue px-4 py-2 rounded-full mb-4 border border-primary-500/30"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -61,10 +61,10 @@ export default function Skills() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Habilidades <span className="gradient-text">Técnicas</span>
+            Habilidades <span className="gradient-text-blue">Técnicas</span>
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-primary mx-auto rounded-full"
+            className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
             initial={{ width: 0 }}
             animate={inView ? { width: 96 } : {}}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -77,29 +77,29 @@ export default function Skills() {
             return (
               <motion.div
                 key={skill.name}
-                className="group relative glass rounded-2xl p-6 overflow-hidden"
+                className="group relative glass rounded-2xl p-6 overflow-hidden border border-white/10"
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1, type: "spring" }}
-                whileHover={{ y: -10, scale: 1.05 }}
+                whileHover={{ y: -10, scale: 1.05, borderColor: 'rgba(59, 130, 246, 0.3)' }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="relative z-10 flex flex-col items-center space-y-4">
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.2 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <Icon className="text-6xl text-transparent bg-clip-text bg-gradient-to-br from-primary-400 to-purple-400" />
+                    <Icon className="text-6xl text-primary-400" />
                   </motion.div>
                   <h3 className="text-white font-semibold text-lg">{skill.name}</h3>
-                  <div className="w-full bg-gray-800/50 rounded-full h-3 overflow-hidden">
+                  <div className="w-full bg-black/50 rounded-full h-3 overflow-hidden border border-white/10">
                     <motion.div
-                      className="h-full bg-gradient-to-r from-primary-500 to-purple-500 rounded-full relative overflow-hidden"
+                      className="h-full bg-gradient-blue rounded-full relative overflow-hidden"
                       initial={{ width: 0 }}
                       animate={inView ? { width: `${skill.level}%` } : {}}
                       transition={{ duration: 1.5, delay: index * 0.1 + 0.3, ease: "easeOut" }}
                     >
-                      <div className="absolute inset-0 bg-white/20 animate-pulse"></div>
+                      <div className="absolute inset-0 bg-white/10 animate-pulse"></div>
                     </motion.div>
                   </div>
                   <span className="text-primary-400 text-sm font-bold">{skill.level}%</span>

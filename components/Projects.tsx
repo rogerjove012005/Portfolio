@@ -59,7 +59,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass px-4 py-2 rounded-full mb-4"
+            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass-blue px-4 py-2 rounded-full mb-4 border border-primary-500/30"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -72,10 +72,10 @@ export default function Projects() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Mis <span className="gradient-text">Proyectos</span>
+            Mis <span className="gradient-text-blue">Proyectos</span>
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-primary mx-auto rounded-full"
+            className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
             initial={{ width: 0 }}
             animate={inView ? { width: 96 } : {}}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -86,16 +86,16 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              className="group relative glass rounded-2xl overflow-hidden"
+              className="group relative glass rounded-2xl overflow-hidden border border-white/10"
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15, type: "spring" }}
-              whileHover={{ y: -15 }}
+              whileHover={{ y: -15, borderColor: 'rgba(59, 130, 246, 0.3)' }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               
-              <div className="relative h-64 bg-gradient-to-br from-primary-600 via-purple-600 to-pink-600 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+              <div className="relative h-64 bg-gradient-blue overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.span
                     className="text-white text-6xl"
@@ -106,7 +106,7 @@ export default function Projects() {
                   </motion.span>
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="glass px-3 py-1 rounded-full text-xs text-white font-semibold">
+                  <span className="glass-strong px-3 py-1 rounded-full text-xs text-white font-semibold border border-white/20">
                     Featured
                   </span>
                 </div>
@@ -116,13 +116,13 @@ export default function Projects() {
                 <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+                <p className="text-white/70 mb-6 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="glass px-3 py-1 text-primary-400 rounded-full text-xs font-medium"
+                      className="glass-blue px-3 py-1 text-primary-300 rounded-full text-xs font-medium border border-primary-500/30"
                     >
                       {tech}
                     </span>
@@ -134,7 +134,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 glass px-4 py-2 rounded-lg text-gray-300 hover:text-white transition-all group/link"
+                    className="flex items-center space-x-2 glass px-4 py-2 rounded-lg text-white/70 hover:text-white transition-all group/link border border-white/10"
                     whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -145,8 +145,8 @@ export default function Projects() {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 bg-gradient-primary px-4 py-2 rounded-lg text-white font-medium transition-all group/link"
-                    whileHover={{ scale: 1.05, x: 5 }}
+                    className="flex items-center space-x-2 bg-gradient-blue px-4 py-2 rounded-lg text-white font-medium transition-all group/link shadow-lg shadow-primary-500/20"
+                    whileHover={{ scale: 1.05, x: 5, boxShadow: '0 10px 30px rgba(59, 130, 246, 0.3)' }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <FaExternalLinkAlt className="group-hover/link:rotate-12 transition-transform" />

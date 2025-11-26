@@ -52,12 +52,12 @@ export default function Header() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-gray-300 hover:text-white transition-all relative group px-2 py-1"
+                className="text-white/70 hover:text-white transition-all relative group px-2 py-1 font-medium"
                 whileHover={{ y: -2 }}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-purple-400 transition-all duration-300 group-hover:w-full" />
-                <span className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-primary-600 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute inset-0 bg-primary-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
               </motion.a>
             ))}
           </div>
@@ -77,13 +77,13 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 space-y-4 pb-4 glass rounded-lg p-4"
+            className="md:hidden mt-4 space-y-4 pb-4 glass-strong rounded-lg p-4 border border-white/10"
           >
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block text-gray-300 hover:text-white hover:bg-primary-500/10 rounded-lg px-4 py-2 transition-all"
+                className="block text-white/70 hover:text-white hover:bg-primary-500/10 rounded-lg px-4 py-2 transition-all font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

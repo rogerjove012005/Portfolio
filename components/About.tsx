@@ -23,7 +23,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass px-4 py-2 rounded-full mb-4"
+            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass-blue px-4 py-2 rounded-full mb-4 border border-primary-500/30"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -36,10 +36,10 @@ export default function About() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Sobre <span className="gradient-text">Mí</span>
+            Sobre <span className="gradient-text-blue">Mí</span>
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-primary mx-auto rounded-full"
+            className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
             initial={{ width: 0 }}
             animate={inView ? { width: 96 } : {}}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -54,9 +54,9 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-primary rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
-              <div className="relative glass rounded-2xl p-8 h-96 flex flex-col items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-purple-500/20 to-pink-500/20"></div>
+              <div className="absolute inset-0 bg-gradient-blue rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
+              <div className="relative glass rounded-2xl p-8 h-96 flex flex-col items-center justify-center overflow-hidden border border-white/10">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-primary-600/10 to-primary-700/10"></div>
                 <motion.div
                   className="relative z-10 text-8xl"
                   animate={{ rotate: [0, 10, -10, 0] }}
@@ -64,7 +64,7 @@ export default function About() {
                 >
                   👨‍💻
                 </motion.div>
-                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-primary-500/10 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-primary-500/5 to-transparent"></div>
               </div>
             </div>
           </motion.div>
@@ -75,17 +75,17 @@ export default function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="glass rounded-2xl p-6 space-y-4">
-              <p className="text-gray-300 text-lg leading-relaxed">
+            <div className="glass rounded-2xl p-8 space-y-5 border border-white/10">
+              <p className="text-white/80 text-lg leading-relaxed">
                 Soy un <span className="text-primary-400 font-semibold">desarrollador full stack</span> apasionado por crear soluciones
                 innovadoras y escalables. Con experiencia en tecnologías modernas
                 como React, Next.js, Node.js y bases de datos tanto SQL como NoSQL.
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className="text-white/80 text-lg leading-relaxed">
                 Me encanta trabajar en proyectos desafiantes que me permiten
                 aprender y crecer constantemente. Mi objetivo es crear aplicaciones
                 que no solo funcionen bien, sino que también proporcionen una
-                experiencia de usuario <span className="text-purple-400 font-semibold">excepcional</span>.
+                experiencia de usuario <span className="text-primary-300 font-semibold">excepcional</span>.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -93,11 +93,11 @@ export default function About() {
                 (item, index) => (
                   <motion.span
                     key={item}
-                    className="glass px-4 py-2 text-primary-400 rounded-full text-sm font-medium"
+                    className="glass-blue px-4 py-2 text-primary-300 rounded-full text-sm font-medium border border-primary-500/30"
                     initial={{ opacity: 0, scale: 0 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.6 + index * 0.1, type: "spring" }}
-                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileHover={{ scale: 1.1, y: -2, borderColor: 'rgba(59, 130, 246, 0.5)' }}
                   >
                     {item}
                   </motion.span>
