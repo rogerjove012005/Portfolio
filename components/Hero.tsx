@@ -1,85 +1,122 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa'
-import { HiArrowDown } from 'react-icons/hi'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { useEffect } from 'react'
+import Link from 'next/link'
 
 const socialLinks = [
-  { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
-  { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: FaEnvelope, href: 'mailto:email@example.com', label: 'Email' },
+  { icon: FaGithub, href: 'https://github.com/rogerjove012005', label: 'GitHub' },
+  { icon: FaLinkedin, href: 'https://www.linkedin.com/in/roger-jov%C3%A9-tusell-10163a2b7/', label: 'LinkedIn' },
+  { icon: FaEnvelope, href: 'mailto:rogerjove2005@gmail.com', label: 'Email' },
 ]
 
 export default function Hero() {
   const { t } = useLanguage()
   
+  const navButtons = [
+    { label: t.hero.navAbout, href: '/about' },
+    { label: t.hero.navSkills, href: '/skills' },
+    { label: t.hero.navProjects, href: '/projects' },
+    { label: t.hero.navContact, href: '/contact' },
+  ]
+
+  // Disable scroll on mount
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [])
+
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center px-4 pt-20 relative overflow-hidden"
+      className="h-screen flex items-center justify-center px-4 relative overflow-hidden bg-black"
     >
-      {/* Animated background elements */}
+      {/* Ultra subtle background texture */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-500/8 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-600/6 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary-400/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.02)_0%,transparent_70%)]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0%,rgba(255,255,255,0.01)_50%,transparent_100%)]"></div>
       </div>
 
-      <div className="container mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          {/* Main Name - Ultra elegant */}
           <motion.div
-            className="inline-block mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center mb-16"
           >
-            <span className="text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass-blue px-4 py-2 rounded-full border border-primary-500/30">
-              👋 {t.hero.welcome}
-            </span>
+            <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-extralight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/90 to-white/60 tracking-[0.02em] leading-[0.9] mb-2">
+              ROGER
+            </h1>
+            <h2 className="text-8xl md:text-9xl lg:text-[12rem] font-extralight text-transparent bg-clip-text bg-gradient-to-b from-white via-white/90 to-white/60 tracking-[0.02em] leading-[0.9]">
+              JOVÉ
+            </h2>
+          </motion.div>
+          
+          {/* Tagline - Ultra thin */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="text-sm md:text-base font-extralight text-white/40 tracking-[0.3em] uppercase mb-20 letter-spacing-wider"
+          >
+            {t.hero.tagline}
+          </motion.p>
+
+          {/* Navigation Buttons - Ultra minimal */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-1 w-full max-w-md"
+          >
+            {navButtons.map((button, index) => (
+              <motion.div
+                key={button.href}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 + index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Link
+                  href={button.href}
+                  className="group block"
+                >
+                  <div className="relative overflow-hidden border-b border-white/5 hover:border-white/20 transition-all duration-700 py-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg md:text-xl font-extralight text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/70 tracking-[0.2em] uppercase group-hover:from-white group-hover:via-white group-hover:to-white transition-all duration-500">
+                        {button.label}
+                      </span>
+                      <motion.span
+                        className="text-white/20 group-hover:text-white/60 text-sm font-extralight transition-colors duration-500"
+                        initial={{ x: 0 }}
+                        whileHover={{ x: 5 }}
+                      >
+                        →
+                      </motion.span>
+                    </div>
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-white/0 via-white/30 to-white/0"
+                      initial={{ width: 0, x: '-50%' }}
+                      whileHover={{ width: '100%', x: '0%' }}
+                      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
 
-          <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            {t.hero.hi}{' '}
-            <span className="gradient-text-blue">
-              {t.hero.yourName}
-            </span>
-          </motion.h1>
-
-          <motion.p
-            className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-4 max-w-3xl mx-auto font-medium"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            {t.hero.fullStack}{' '}
-            <span className="text-primary-400 font-bold">{t.hero.developer}</span>
-          </motion.p>
-          
-          <motion.p
-            className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto font-light"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            {t.hero.description}
-          </motion.p>
-
+          {/* Social Links - Ultra minimal */}
           <motion.div
-            className="flex justify-center space-x-6 mb-12"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="flex space-x-8 mt-20"
           >
             {socialLinks.map(({ icon: Icon, href, label }, index) => (
               <motion.a
@@ -87,69 +124,20 @@ export default function Hero() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-blue p-4 rounded-full text-white/60 hover:text-primary-400 transition-all group border border-primary-500/20"
-                whileHover={{ scale: 1.15, y: -5 }}
-                whileTap={{ scale: 0.9 }}
+                className="text-white/20 hover:text-white/60 transition-all duration-500"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + index * 0.1 }}
+                transition={{ delay: 1.3 + index * 0.1 }}
                 aria-label={label}
               >
-                <Icon className="text-2xl group-hover:scale-110 transition-transform" />
-                <span className="absolute inset-0 bg-primary-500/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity rounded-full"></span>
+                <Icon className="text-lg" />
               </motion.a>
             ))}
           </motion.div>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-          >
-            <motion.a
-              href="#projects"
-              className="group relative px-8 py-4 bg-gradient-blue text-white rounded-xl font-semibold overflow-hidden shadow-lg shadow-primary-500/20"
-              whileHover={{ scale: 1.05, y: -2, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.3)' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10 flex items-center justify-center gap-2">
-                {t.hero.viewProjects}
-                <motion.span
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
-                >
-                  →
-                </motion.span>
-              </span>
-              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-            </motion.a>
-            <motion.a
-              href="#contact"
-              className="group px-8 py-4 glass border-2 border-primary-500/30 text-white/80 rounded-xl font-semibold hover:border-primary-400 hover:text-white hover:bg-primary-500/10 transition-all"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="flex items-center justify-center gap-2">
-                {t.hero.contact}
-                <span className="group-hover:rotate-12 transition-transform">📧</span>
-              </span>
-            </motion.a>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          className="mt-16"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, repeat: Infinity, repeatType: 'reverse', duration: 1.5 }}
-        >
-          <a href="#about" className="inline-block glass-blue p-3 rounded-full text-white/60 hover:text-primary-400 transition-colors border border-primary-500/20">
-            <HiArrowDown className="text-3xl" />
-          </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
 }
-

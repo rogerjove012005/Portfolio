@@ -5,18 +5,21 @@ import { motion } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageToggle from './LanguageToggle'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const { t } = useLanguage()
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navItems = [
-    { name: t.nav.home, href: '#home' },
-    { name: t.nav.about, href: '#about' },
-    { name: t.nav.skills, href: '#skills' },
-    { name: t.nav.projects, href: '#projects' },
-    { name: t.nav.contact, href: '#contact' },
+    { name: t.nav.home, href: '/' },
+    { name: t.nav.about, href: '/about' },
+    { name: t.nav.skills, href: '/skills' },
+    { name: t.nav.projects, href: '/projects' },
+    { name: t.nav.contact, href: '/contact' },
   ]
 
   useEffect(() => {
@@ -34,34 +37,38 @@ export default function Header() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'glass-strong shadow-2xl shadow-primary-500/10'
+          ? 'bg-black/80 backdrop-blur-md shadow-lg border-b border-white/10'
           : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <motion.a
-            href="#home"
-            className="text-2xl font-bold gradient-text"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Link
+            href="/"
+            className={`text-2xl font-extralight tracking-[0.1em] transition-colors ${
+              isScrolled ? 'text-white' : 'text-white'
+            }`}
           >
-            Portfolio
-          </motion.a>
+            PORTFOLIO
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <motion.a
+              <Link
                 key={item.href}
                 href={item.href}
-                className="text-white/70 hover:text-white transition-all relative group px-2 py-1 font-medium"
-                whileHover={{ y: -2 }}
+                className={`transition-all relative group px-2 py-1 font-extralight tracking-[0.2em] text-xs uppercase ${
+                  pathname === item.href
+                    ? 'text-white'
+                    : 'text-white/40 hover:text-white/70'
+                }`}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-primary-600 transition-all duration-300 group-hover:w-full" />
-                <span className="absolute inset-0 bg-primary-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
-              </motion.a>
+                <span className={`absolute bottom-0 left-0 h-px transition-all duration-500 ${
+                  pathname === item.href ? 'w-full bg-white/30' : 'w-0 group-hover:w-full bg-white/20'
+                }`} />
+              </Link>
             ))}
             <LanguageToggle />
           </div>
@@ -70,7 +77,9 @@ export default function Header() {
           <div className="md:hidden flex items-center gap-3">
             <LanguageToggle />
             <button
-              className="text-white text-2xl"
+              className={`text-2xl transition-colors ${
+                isScrolled ? 'text-white' : 'text-white'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <HiX /> : <HiMenu />}
@@ -84,17 +93,21 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 space-y-4 pb-4 glass-strong rounded-lg p-4 border border-white/10"
+            className="md:hidden mt-4 space-y-4 pb-4 bg-black/90 backdrop-blur-md rounded-lg p-4 border border-white/10 shadow-lg"
           >
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                className="block text-white/70 hover:text-white hover:bg-primary-500/10 rounded-lg px-4 py-2 transition-all font-medium"
+                className={`block px-4 py-2 transition-all font-extralight tracking-[0.2em] text-xs uppercase ${
+                  pathname === item.href
+                    ? 'text-white bg-white/5'
+                    : 'text-white/40 hover:text-white hover:bg-white/5'
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </motion.div>
         )}

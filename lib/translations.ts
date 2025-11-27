@@ -20,6 +20,11 @@ export const translations = {
       description: 'Passionate about creating exceptional digital experiences and innovative solutions',
       viewProjects: 'View Projects',
       contact: 'Contact',
+      tagline: 'Full Stack Developer',
+      navAbout: 'About Me',
+      navSkills: 'Skills',
+      navProjects: 'Projects',
+      navContact: 'Contact Me',
     },
     // About
     about: {
@@ -111,6 +116,11 @@ export const translations = {
       description: 'Apasionado por crear experiencias digitales excepcionales y soluciones innovadoras',
       viewProjects: 'Ver Proyectos',
       contact: 'Contactar',
+      tagline: 'Desarrollador Full Stack',
+      navAbout: 'Sobre Mí',
+      navSkills: 'Habilidades',
+      navProjects: 'Proyectos',
+      navContact: 'Contáctame',
     },
     // About
     about: {

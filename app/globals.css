@@ -76,6 +76,14 @@ body::before {
     background-clip: text;
   }
   
+  .letter-spacing-wider {
+    letter-spacing: 0.3em;
+  }
+  
+  .font-ultra-light {
+    font-weight: 100;
+  }
+  
   .gradient-border {
     position: relative;
     background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(139, 92, 246, 0.2));
