@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function About() {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -28,7 +30,7 @@ export default function About() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            About Me
+            {t.about.badge}
           </motion.span>
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-white mb-4"
@@ -36,7 +38,7 @@ export default function About() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            About <span className="gradient-text-blue">Me</span>
+            {t.about.title} <span className="gradient-text-blue">{t.about.titleHighlight}</span>
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
@@ -87,22 +89,17 @@ export default function About() {
               
               <div className="relative z-10 space-y-5">
                 <p className="text-white/90 text-lg leading-relaxed">
-                  I'm a <span className="text-primary-400 font-semibold">junior programmer</span> with many ambitions and 
-                  eager to learn about everything related to tech applications. 
-                  Passionate about technology and committed to keeping up with the latest trends.
+                  {t.about.description1} <span className="text-primary-400 font-semibold">{t.about.description1Highlight}</span> {t.about.description1Rest}
                 </p>
                 <p className="text-white/90 text-lg leading-relaxed">
-                  Curious, decisive, honest, and with a clear goal of developing myself as a professional. 
-                  Currently pursuing a <span className="text-primary-300 font-semibold">Master's in Machine Learning and BigData</span> at LaSalle Barcelona, 
-                  after completing the CFGS in Multiplatform Application Development. 
-                  I'm planning to study <span className="text-primary-400 font-semibold">Software Engineering</span> to further enhance my skills and knowledge in the field.
+                  {t.about.description2} <span className="text-primary-300 font-semibold">{t.about.description2Highlight}</span> {t.about.description2Rest} <span className="text-primary-400 font-semibold">{t.about.description2Highlight2}</span> {t.about.description2Rest2}
                 </p>
                 <div className="pt-4 border-t border-white/10">
-                  <p className="text-white/70 text-sm mb-2 font-semibold">📍 Location</p>
+                  <p className="text-white/70 text-sm mb-2 font-semibold">📍 {t.about.location}</p>
                   <p className="text-white/80">Barcelona, Spain</p>
                 </div>
                 <div className="pt-2 border-t border-white/10">
-                  <p className="text-white/70 text-sm mb-2 font-semibold">🌐 Languages</p>
+                  <p className="text-white/70 text-sm mb-2 font-semibold">🌐 {t.about.languages}</p>
                   <div className="flex flex-wrap gap-2">
                     <span className="text-white/80 text-sm">Catalan (Native)</span>
                     <span className="text-white/40">•</span>
@@ -115,7 +112,7 @@ export default function About() {
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-white font-semibold text-lg">Technologies</h3>
+              <h3 className="text-white font-semibold text-lg">{t.about.technologies}</h3>
               <div className="flex flex-wrap gap-3">
                 {['HTML', 'CSS', 'Java', 'PHP', 'MySQL', 'Kotlin', 'Python', 'PySpark', 'Jupyter', 'Github', 'XML', 'Linux', 'React', 'Next.js'].map(
                   (item, index) => (

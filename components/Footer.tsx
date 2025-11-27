@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const socialLinks = [
   { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
@@ -11,6 +12,8 @@ const socialLinks = [
 ]
 
 export default function Footer() {
+  const { t } = useLanguage()
+  
   return (
     <footer className="relative py-12 px-4 border-t border-white/10">
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -22,7 +25,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            © {new Date().getFullYear()} Portfolio. All rights reserved.
+            © {new Date().getFullYear()} Portfolio. {t.footer.rights}
           </motion.p>
           <div className="flex space-x-4">
             {socialLinks.map(({ icon: Icon, href, label }, index) => (
@@ -52,7 +55,7 @@ export default function Footer() {
           transition={{ delay: 0.3 }}
         >
           <p className="text-white/50 text-sm">
-            Made with <span className="text-primary-400">❤️</span> using Next.js and Tailwind CSS
+            {t.footer.madeWith} <span className="text-primary-400">❤️</span> {t.footer.using}
           </p>
         </motion.div>
       </div>

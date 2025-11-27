@@ -3,51 +3,29 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { useLanguage } from '@/contexts/LanguageContext'
 
-const projects = [
-  {
-    title: 'E-commerce Platform',
-    description:
-      'Complete e-commerce platform with shopping cart, payment system and admin panel.',
-    technologies: ['React', 'Next.js', 'Node.js', 'MongoDB'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://via.placeholder.com/600x400',
-  },
-  {
-    title: 'Task Management App',
-    description:
-      'Task management application with real-time collaboration, notifications and productivity analytics.',
-    technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://via.placeholder.com/600x400',
-  },
-  {
-    title: 'Social Media Dashboard',
-    description:
-      'Analytical dashboard for social networks with real-time metrics, interactive charts and custom reports.',
-    technologies: ['Next.js', 'Python', 'PostgreSQL', 'Chart.js'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://via.placeholder.com/600x400',
-  },
-  {
-    title: 'Weather App',
-    description:
-      'Weather application with detailed forecasts, interactive maps and custom alerts.',
-    technologies: ['React', 'OpenWeather API', 'Leaflet', 'CSS3'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://via.placeholder.com/600x400',
-  },
+const technologies = [
+  ['React', 'Next.js', 'Node.js', 'MongoDB'],
+  ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
+  ['Next.js', 'Python', 'PostgreSQL', 'Chart.js'],
+  ['React', 'OpenWeather API', 'Leaflet', 'CSS3'],
 ]
 
 export default function Projects() {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+  
+  const projects = t.projects.items.map((item, index) => ({
+    ...item,
+    technologies: technologies[index],
+    github: 'https://github.com',
+    demo: 'https://demo.com',
+    image: 'https://via.placeholder.com/600x400',
+  }))
 
   return (
     <section id="projects" ref={ref} className="py-20 px-4 relative">
@@ -64,7 +42,7 @@ export default function Projects() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            Portfolio
+            {t.projects.badge}
           </motion.span>
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-white mb-4"
@@ -72,7 +50,7 @@ export default function Projects() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            My <span className="gradient-text-blue">Projects</span>
+            {t.projects.title} <span className="gradient-text-blue">{t.projects.titleHighlight}</span>
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
@@ -107,7 +85,7 @@ export default function Projects() {
                 </div>
                 <div className="absolute top-4 right-4">
                   <span className="glass-strong px-3 py-1 rounded-full text-xs text-white font-semibold border border-white/20">
-                    Featured
+                    {t.projects.featured}
                   </span>
                 </div>
               </div>
@@ -139,7 +117,7 @@ export default function Projects() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <FaGithub className="group-hover/link:rotate-12 transition-transform" />
-                    <span className="font-medium">Code</span>
+                    <span className="font-medium">{t.projects.code}</span>
                   </motion.a>
                   <motion.a
                     href={project.demo}
@@ -150,7 +128,7 @@ export default function Projects() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <FaExternalLinkAlt className="group-hover/link:rotate-12 transition-transform" />
-                    <span>Demo</span>
+                    <span>{t.projects.demo}</span>
                   </motion.a>
                 </div>
               </div>

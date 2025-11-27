@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function Contact() {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -25,7 +27,7 @@ export default function Contact() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            Let's Talk
+            {t.contact.badge}
           </motion.span>
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-white mb-4"
@@ -33,7 +35,7 @@ export default function Contact() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Contact <span className="gradient-text-blue">Me</span>
+            {t.contact.title} <span className="gradient-text-blue">{t.contact.titleHighlight}</span>
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
@@ -52,7 +54,7 @@ export default function Contact() {
           >
             <div className="glass rounded-2xl p-8 border border-white/10">
               <h3 className="text-2xl font-semibold text-white mb-8 gradient-text-blue">
-                Contact Information
+                {t.contact.contactInfo}
               </h3>
               <div className="space-y-6">
                 <motion.a
@@ -113,7 +115,7 @@ export default function Contact() {
                 htmlFor="name"
                 className="block text-white/80 mb-2 font-medium"
               >
-                Name
+                {t.contact.name}
               </label>
               <input
                 type="text"
@@ -121,7 +123,7 @@ export default function Contact() {
                 name="name"
                 className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all placeholder:text-white/30"
                 required
-                placeholder="Your name"
+                placeholder={t.contact.namePlaceholder}
               />
             </div>
             <div>
@@ -137,7 +139,7 @@ export default function Contact() {
                 name="email"
                 className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all placeholder:text-white/30"
                 required
-                placeholder="your@email.com"
+                placeholder={t.contact.emailPlaceholder}
               />
             </div>
             <div>
@@ -145,7 +147,7 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-white/80 mb-2 font-medium"
               >
-                Message
+                {t.contact.message}
               </label>
               <textarea
                 id="message"
@@ -153,7 +155,7 @@ export default function Contact() {
                 rows={5}
                 className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 resize-none transition-all placeholder:text-white/30"
                 required
-                placeholder="Your message..."
+                placeholder={t.contact.messagePlaceholder}
               />
             </div>
             <motion.button
@@ -163,7 +165,7 @@ export default function Contact() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Send Message
+                {t.contact.sendMessage}
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}

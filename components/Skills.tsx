@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useLanguage } from '@/contexts/LanguageContext'
 import {
   SiReact,
   SiNextdotjs,
@@ -33,6 +34,7 @@ const skills = [
 ]
 
 export default function Skills() {
+  const { t } = useLanguage()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -53,7 +55,7 @@ export default function Skills() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            Technologies
+            {t.skills.badge}
           </motion.span>
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-white mb-4"
@@ -61,7 +63,7 @@ export default function Skills() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Technical <span className="gradient-text-blue">Skills</span>
+            {t.skills.title} <span className="gradient-text-blue">{t.skills.titleHighlight}</span>
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"

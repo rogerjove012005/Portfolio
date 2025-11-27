@@ -3,18 +3,21 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
-
-const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
-]
+import { useLanguage } from '@/contexts/LanguageContext'
+import LanguageToggle from './LanguageToggle'
 
 export default function Header() {
+  const { t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const navItems = [
+    { name: t.nav.home, href: '#home' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.skills, href: '#skills' },
+    { name: t.nav.projects, href: '#projects' },
+    { name: t.nav.contact, href: '#contact' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,10 +50,10 @@ export default function Header() {
           </motion.a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <motion.a
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className="text-white/70 hover:text-white transition-all relative group px-2 py-1 font-medium"
                 whileHover={{ y: -2 }}
@@ -60,15 +63,19 @@ export default function Header() {
                 <span className="absolute inset-0 bg-primary-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
               </motion.a>
             ))}
+            <LanguageToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white text-2xl"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <HiX /> : <HiMenu />}
-          </button>
+          <div className="md:hidden flex items-center gap-3">
+            <LanguageToggle />
+            <button
+              className="text-white text-2xl"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <HiX /> : <HiMenu />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -81,7 +88,7 @@ export default function Header() {
           >
             {navItems.map((item) => (
               <a
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className="block text-white/70 hover:text-white hover:bg-primary-500/10 rounded-lg px-4 py-2 transition-all font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}

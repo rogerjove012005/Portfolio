@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa'
 import { HiArrowDown } from 'react-icons/hi'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const socialLinks = [
   { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
@@ -12,6 +13,8 @@ const socialLinks = [
 ]
 
 export default function Hero() {
+  const { t } = useLanguage()
+  
   return (
     <section
       id="home"
@@ -37,7 +40,7 @@ export default function Hero() {
             transition={{ delay: 0.1, type: 'spring', stiffness: 200 }}
           >
             <span className="text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass-blue px-4 py-2 rounded-full border border-primary-500/30">
-              👋 Welcome to my Portfolio
+              👋 {t.hero.welcome}
             </span>
           </motion.div>
 
@@ -47,9 +50,9 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            Hi, I'm{' '}
+            {t.hero.hi}{' '}
             <span className="gradient-text-blue">
-              Your Name
+              {t.hero.yourName}
             </span>
           </motion.h1>
 
@@ -59,8 +62,8 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Full Stack{' '}
-            <span className="text-primary-400 font-bold">Developer</span>
+            {t.hero.fullStack}{' '}
+            <span className="text-primary-400 font-bold">{t.hero.developer}</span>
           </motion.p>
           
           <motion.p
@@ -69,7 +72,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Passionate about creating exceptional digital experiences and innovative solutions
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -111,7 +114,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                View Projects
+                {t.hero.viewProjects}
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}
@@ -128,7 +131,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
             >
               <span className="flex items-center justify-center gap-2">
-                Contact
+                {t.hero.contact}
                 <span className="group-hover:rotate-12 transition-transform">📧</span>
               </span>
             </motion.a>

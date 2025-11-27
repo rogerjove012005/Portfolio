@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { LanguageProvider } from '@/contexts/LanguageContext'
+import HtmlLang from '@/components/HtmlLang'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Desarrollador Full Stack',
-  description: 'Portfolio profesional de desarrollador web',
+  title: 'Portfolio - Full Stack Developer',
+  description: 'Professional web developer portfolio',
 }
 
 export default function RootLayout({
@@ -15,8 +17,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <body className={inter.className}>{children}</body>
+    <html lang="en">
+      <body className={inter.className}>
+        <LanguageProvider>
+          <HtmlLang />
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   )
 }
