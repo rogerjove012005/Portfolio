@@ -40,8 +40,53 @@ export const translations = {
       description2Highlight2: 'Software Engineering',
       description2Rest2: 'to further enhance my skills and knowledge in the field.',
       location: 'Location',
+      education: 'Education',
+      experience: 'Experience',
       languages: 'Languages',
       technologies: 'Technologies',
+      current: 'Current',
+      languageItems: [
+        { name: 'Catalan', level: 'Native', flag: '🇪🇸' },
+        { name: 'Spanish', level: 'Native', flag: '🇪🇸' },
+        { name: 'English', level: 'C1 Advanced (2023)', flag: '🇬🇧' }
+      ],
+      experienceItems: [
+        {
+          period: 'Mar 2025 - Aug 2025',
+          title: 'Testing QA Programmer',
+          company: 'Indra',
+          location: 'Barcelona, Spain',
+          description: 'As a QA Testing Intern, I collaborated with the development team to ensure product quality through manual and automated testing. My work focused on identifying bugs, improving testing workflows, and supporting continuous integration processes.'
+        },
+        {
+          period: 'Jun 2023 - Aug 2023',
+          title: 'English Teacher at Summer Camp',
+          company: 'Bekith',
+          location: 'Lestonnac Barcelona, Spain',
+          description: 'Monitor of a primary school class, in charge of preparing and developing all the activities of the camp. Supervision of the classroom and resolution of any incidents. Daily closure of activities and next day set up.'
+        },
+        {
+          period: 'Jun 2022 - Jul 2022',
+          title: 'Waiter',
+          company: 'Nova Pasta',
+          location: 'Llafranch, Spain',
+          description: 'Attendance and service at the customers, cleaning the facilities and the equipment, daily closing of the restaurant.'
+        }
+      ],
+      educationItems: [
+        {
+          period: 'Sep 2025 - Ongoing',
+          title: "Master's in Machine Learning and BigData",
+          institution: 'LaSalle Barcelona',
+          description: 'Currently pursuing advanced studies in Machine Learning and Big Data'
+        },
+        {
+          period: 'Sep 2023 - Jun 2025',
+          title: 'CFGS Development of Multiplatform Applications',
+          institution: 'LaSalle de Gràcia Barcelona',
+          description: 'Currently studying application programming, with the aim of working professionally as a full-stack developer. Knowledge acquired: Java, PHP, SQL, Github, HTML, CSS, XML and Linux.'
+        }
+      ],
     },
     // Skills
     skills: {
@@ -136,8 +181,53 @@ export const translations = {
       description2Highlight2: 'Ingeniería de Software',
       description2Rest2: 'para mejorar aún más mis habilidades y conocimientos en el campo.',
       location: 'Ubicación',
+      education: 'Educación',
+      experience: 'Experiencia',
       languages: 'Idiomas',
       technologies: 'Tecnologías',
+      current: 'Actual',
+      languageItems: [
+        { name: 'Catalán', level: 'Nativo', flag: '🇪🇸' },
+        { name: 'Español', level: 'Nativo', flag: '🇪🇸' },
+        { name: 'Inglés', level: 'C1 Avanzado (2023)', flag: '🇬🇧' }
+      ],
+      experienceItems: [
+        {
+          period: 'Mar 2025 - Ago 2025',
+          title: 'Programador Testing QA',
+          company: 'Indra',
+          location: 'Barcelona, España',
+          description: 'Como becario de Testing QA, colaboré con el equipo de desarrollo para asegurar la calidad del producto mediante pruebas manuales y automatizadas. Mi trabajo se centró en identificar errores, mejorar los flujos de trabajo de pruebas y apoyar los procesos de integración continua.'
+        },
+        {
+          period: 'Jun 2023 - Ago 2023',
+          title: 'Profesor de Inglés en Campamento de Verano',
+          company: 'Bekith',
+          location: 'Lestonnac Barcelona, España',
+          description: 'Monitor de una clase de educación primaria, encargado de preparar y desarrollar todas las actividades del campamento. Supervisión del aula y resolución de cualquier incidente. Cierre diario de actividades y preparación del día siguiente.'
+        },
+        {
+          period: 'Jun 2022 - Jul 2022',
+          title: 'Camarero',
+          company: 'Nova Pasta',
+          location: 'Llafranch, España',
+          description: 'Atención y servicio a los clientes, limpieza de las instalaciones y del equipo, cierre diario del restaurante.'
+        }
+      ],
+      educationItems: [
+        {
+          period: 'Sep 2025 - En curso',
+          title: 'Máster en Machine Learning y BigData',
+          institution: 'LaSalle Barcelona',
+          description: 'Actualmente cursando estudios avanzados en Machine Learning y Big Data'
+        },
+        {
+          period: 'Sep 2023 - Jun 2025',
+          title: 'CFGS Desarrollo de Aplicaciones Multiplataforma',
+          institution: 'LaSalle de Gràcia Barcelona',
+          description: 'Actualmente estudiando programación de aplicaciones, con el objetivo de trabajar profesionalmente como desarrollador full-stack. Conocimientos adquiridos: Java, PHP, SQL, Github, HTML, CSS, XML y Linux.'
+        }
+      ],
     },
     // Skills
     skills: {
