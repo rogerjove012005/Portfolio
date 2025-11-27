@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa'
 
 export default function Contact() {
   const [ref, inView] = useInView({
@@ -25,7 +25,7 @@ export default function Contact() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            Hablemos
+            Let's Talk
           </motion.span>
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-white mb-4"
@@ -33,7 +33,7 @@ export default function Contact() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Contácta<span className="gradient-text-blue">me</span>
+            Contact <span className="gradient-text-blue">Me</span>
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
@@ -52,11 +52,11 @@ export default function Contact() {
           >
             <div className="glass rounded-2xl p-8 border border-white/10">
               <h3 className="text-2xl font-semibold text-white mb-8 gradient-text-blue">
-                Información de Contacto
+                Contact Information
               </h3>
               <div className="space-y-6">
                 <motion.a
-                  href="mailto:email@example.com"
+                  href="mailto:rogerjove2005@gmail.com"
                   className="flex items-center space-x-4 glass-blue p-4 rounded-xl hover:bg-primary-500/10 transition-all group border border-primary-500/20"
                   whileHover={{ x: 5, scale: 1.02 }}
                 >
@@ -65,31 +65,39 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-white/60 text-sm">Email</p>
-                    <p className="text-white font-medium">email@example.com</p>
+                    <p className="text-white font-medium">rogerjove2005@gmail.com</p>
                   </div>
                 </motion.a>
                 <motion.a
-                  href="tel:+1234567890"
+                  href="https://www.linkedin.com/in/roger-jov%C3%A9-tusell-10163a2b7/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center space-x-4 glass-blue p-4 rounded-xl hover:bg-primary-500/10 transition-all group border border-primary-500/20"
                   whileHover={{ x: 5, scale: 1.02 }}
                 >
                   <div className="p-3 bg-primary-500/20 rounded-lg group-hover:scale-110 transition-transform">
-                    <FaPhone className="text-primary-400 text-xl" />
+                    <FaLinkedin className="text-primary-400 text-xl" />
                   </div>
                   <div>
-                    <p className="text-white/60 text-sm">Teléfono</p>
-                    <p className="text-white font-medium">+1 234 567 890</p>
+                    <p className="text-white/60 text-sm">LinkedIn</p>
+                    <p className="text-white font-medium">Roger Jové Tusell</p>
                   </div>
                 </motion.a>
-                <div className="flex items-center space-x-4 glass-blue p-4 rounded-xl border border-primary-500/20">
-                  <div className="p-3 bg-primary-500/20 rounded-lg">
-                    <FaMapMarkerAlt className="text-primary-400 text-xl" />
+                <motion.a
+                  href="https://github.com/rogerjove012005"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-4 glass-blue p-4 rounded-xl hover:bg-primary-500/10 transition-all group border border-primary-500/20"
+                  whileHover={{ x: 5, scale: 1.02 }}
+                >
+                  <div className="p-3 bg-primary-500/20 rounded-lg group-hover:scale-110 transition-transform">
+                    <FaGithub className="text-primary-400 text-xl" />
                   </div>
                   <div>
-                    <p className="text-white/60 text-sm">Ubicación</p>
-                    <p className="text-white font-medium">Ciudad, País</p>
+                    <p className="text-white/60 text-sm">GitHub</p>
+                    <p className="text-white font-medium">rogerjove012005</p>
                   </div>
-                </div>
+                </motion.a>
               </div>
             </div>
           </motion.div>
@@ -105,7 +113,7 @@ export default function Contact() {
                 htmlFor="name"
                 className="block text-white/80 mb-2 font-medium"
               >
-                Nombre
+                Name
               </label>
               <input
                 type="text"
@@ -113,7 +121,7 @@ export default function Contact() {
                 name="name"
                 className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all placeholder:text-white/30"
                 required
-                placeholder="Tu nombre"
+                placeholder="Your name"
               />
             </div>
             <div>
@@ -129,7 +137,7 @@ export default function Contact() {
                 name="email"
                 className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all placeholder:text-white/30"
                 required
-                placeholder="tu@email.com"
+                placeholder="your@email.com"
               />
             </div>
             <div>
@@ -137,7 +145,7 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-white/80 mb-2 font-medium"
               >
-                Mensaje
+                Message
               </label>
               <textarea
                 id="message"
@@ -145,7 +153,7 @@ export default function Contact() {
                 rows={5}
                 className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 resize-none transition-all placeholder:text-white/30"
                 required
-                placeholder="Tu mensaje..."
+                placeholder="Your message..."
               />
             </div>
             <motion.button
@@ -155,7 +163,7 @@ export default function Contact() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
-                Enviar Mensaje
+                Send Message
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}

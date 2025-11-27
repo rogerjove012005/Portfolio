@@ -8,7 +8,7 @@ const projects = [
   {
     title: 'E-commerce Platform',
     description:
-      'Plataforma de comercio electrónico completa con carrito de compras, sistema de pagos y panel de administración.',
+      'Complete e-commerce platform with shopping cart, payment system and admin panel.',
     technologies: ['React', 'Next.js', 'Node.js', 'MongoDB'],
     github: 'https://github.com',
     demo: 'https://demo.com',
@@ -17,7 +17,7 @@ const projects = [
   {
     title: 'Task Management App',
     description:
-      'Aplicación de gestión de tareas con colaboración en tiempo real, notificaciones y análisis de productividad.',
+      'Task management application with real-time collaboration, notifications and productivity analytics.',
     technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
     github: 'https://github.com',
     demo: 'https://demo.com',
@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Social Media Dashboard',
     description:
-      'Dashboard analítico para redes sociales con métricas en tiempo real, gráficos interactivos y reportes personalizados.',
+      'Analytical dashboard for social networks with real-time metrics, interactive charts and custom reports.',
     technologies: ['Next.js', 'Python', 'PostgreSQL', 'Chart.js'],
     github: 'https://github.com',
     demo: 'https://demo.com',
@@ -35,7 +35,7 @@ const projects = [
   {
     title: 'Weather App',
     description:
-      'Aplicación meteorológica con pronósticos detallados, mapas interactivos y alertas personalizadas.',
+      'Weather application with detailed forecasts, interactive maps and custom alerts.',
     technologies: ['React', 'OpenWeather API', 'Leaflet', 'CSS3'],
     github: 'https://github.com',
     demo: 'https://demo.com',
@@ -72,7 +72,7 @@ export default function Projects() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Mis <span className="gradient-text-blue">Proyectos</span>
+            My <span className="gradient-text-blue">Projects</span>
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
@@ -139,7 +139,7 @@ export default function Projects() {
                     whileTap={{ scale: 0.95 }}
                   >
                     <FaGithub className="group-hover/link:rotate-12 transition-transform" />
-                    <span className="font-medium">Código</span>
+                    <span className="font-medium">Code</span>
                   </motion.a>
                   <motion.a
                     href={project.demo}

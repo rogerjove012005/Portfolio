@@ -5,11 +5,11 @@ import { motion } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
 
 const navItems = [
-  { name: 'Inicio', href: '#home' },
-  { name: 'Sobre Mí', href: '#about' },
-  { name: 'Habilidades', href: '#skills' },
-  { name: 'Proyectos', href: '#projects' },
-  { name: 'Contacto', href: '#contact' },
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
 ]
 
 export default function Header() {

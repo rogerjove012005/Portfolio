@@ -53,7 +53,7 @@ export default function Skills() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            Tecnologías
+            Technologies
           </motion.span>
           <motion.h2
             className="text-4xl md:text-6xl font-bold text-white mb-4"
@@ -61,7 +61,7 @@ export default function Skills() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Habilidades <span className="gradient-text-blue">Técnicas</span>
+            Technical <span className="gradient-text-blue">Skills</span>
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"

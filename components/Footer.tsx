@@ -22,7 +22,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            © {new Date().getFullYear()} Portfolio. Todos los derechos reservados.
+            © {new Date().getFullYear()} Portfolio. All rights reserved.
           </motion.p>
           <div className="flex space-x-4">
             {socialLinks.map(({ icon: Icon, href, label }, index) => (
@@ -52,7 +52,7 @@ export default function Footer() {
           transition={{ delay: 0.3 }}
         >
           <p className="text-white/50 text-sm">
-            Hecho con <span className="text-primary-400">❤️</span> usando Next.js y Tailwind CSS
+            Made with <span className="text-primary-400">❤️</span> using Next.js and Tailwind CSS
           </p>
         </motion.div>
       </div>
