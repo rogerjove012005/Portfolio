@@ -13,7 +13,7 @@ export default function Contact() {
   })
 
   return (
-    <section id="contact" ref={ref} className="py-20 px-4 relative">
+    <section id="contact" ref={ref} className="py-20 px-4 relative bg-black">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           className="text-center mb-16"
@@ -22,7 +22,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass-blue px-4 py-2 rounded-full mb-4 border border-primary-500/30"
+            className="inline-block text-sm md:text-base text-white/40 font-extralight tracking-[0.3em] uppercase px-4 py-2 mb-4 border border-white/10"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -30,15 +30,15 @@ export default function Contact() {
             {t.contact.badge}
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-6xl font-bold text-white mb-4"
+            className="text-4xl md:text-6xl font-extralight text-white/90 mb-4 tracking-[0.05em]"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            {t.contact.title} <span className="gradient-text-blue">{t.contact.titleHighlight}</span>
+            {t.contact.title} <span className="text-white">{t.contact.titleHighlight}</span>
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
+            className="w-24 h-px bg-white/30 mx-auto"
             initial={{ width: 0 }}
             animate={inView ? { width: 96 } : {}}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -52,52 +52,55 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="glass rounded-2xl p-8 border border-white/10">
-              <h3 className="text-2xl font-semibold text-white mb-8 gradient-text-blue">
+            <div className="rounded-lg p-8 border border-white/5 bg-black/30">
+              <h3 className="text-2xl font-extralight text-white/90 mb-8 tracking-[0.05em]">
                 {t.contact.contactInfo}
               </h3>
               <div className="space-y-6">
                 <motion.a
                   href="mailto:rogerjove2005@gmail.com"
-                  className="flex items-center space-x-4 glass-blue p-4 rounded-xl hover:bg-primary-500/10 transition-all group border border-primary-500/20"
-                  whileHover={{ x: 5, scale: 1.02 }}
+                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-white/[0.02] transition-all group border border-white/10 bg-black/30"
+                  whileHover={{ x: 5 }}
+                  style={{ willChange: 'transform' }}
                 >
-                  <div className="p-3 bg-primary-500/20 rounded-lg group-hover:scale-110 transition-transform">
-                    <FaEnvelope className="text-primary-400 text-xl" />
+                  <div className="p-3 bg-white/[0.02] rounded-lg group-hover:scale-110 transition-transform duration-200">
+                    <FaEnvelope className="text-white/60 group-hover:text-white/90 text-xl transition-colors duration-200" />
                   </div>
                   <div>
-                    <p className="text-white/60 text-sm">Email</p>
-                    <p className="text-white font-medium">rogerjove2005@gmail.com</p>
+                    <p className="text-white/40 text-xs font-extralight tracking-wider uppercase">Email</p>
+                    <p className="text-white/80 font-extralight text-sm">rogerjove2005@gmail.com</p>
                   </div>
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/roger-jov%C3%A9-tusell-10163a2b7/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-4 glass-blue p-4 rounded-xl hover:bg-primary-500/10 transition-all group border border-primary-500/20"
-                  whileHover={{ x: 5, scale: 1.02 }}
+                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-white/[0.02] transition-all group border border-white/10 bg-black/30"
+                  whileHover={{ x: 5 }}
+                  style={{ willChange: 'transform' }}
                 >
-                  <div className="p-3 bg-primary-500/20 rounded-lg group-hover:scale-110 transition-transform">
-                    <FaLinkedin className="text-primary-400 text-xl" />
+                  <div className="p-3 bg-white/[0.02] rounded-lg group-hover:scale-110 transition-transform duration-200">
+                    <FaLinkedin className="text-white/60 group-hover:text-white/90 text-xl transition-colors duration-200" />
                   </div>
                   <div>
-                    <p className="text-white/60 text-sm">LinkedIn</p>
-                    <p className="text-white font-medium">Roger Jové Tusell</p>
+                    <p className="text-white/40 text-xs font-extralight tracking-wider uppercase">LinkedIn</p>
+                    <p className="text-white/80 font-extralight text-sm">Roger Jové Tusell</p>
                   </div>
                 </motion.a>
                 <motion.a
                   href="https://github.com/rogerjove012005"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-4 glass-blue p-4 rounded-xl hover:bg-primary-500/10 transition-all group border border-primary-500/20"
-                  whileHover={{ x: 5, scale: 1.02 }}
+                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-white/[0.02] transition-all group border border-white/10 bg-black/30"
+                  whileHover={{ x: 5 }}
+                  style={{ willChange: 'transform' }}
                 >
-                  <div className="p-3 bg-primary-500/20 rounded-lg group-hover:scale-110 transition-transform">
-                    <FaGithub className="text-primary-400 text-xl" />
+                  <div className="p-3 bg-white/[0.02] rounded-lg group-hover:scale-110 transition-transform duration-200">
+                    <FaGithub className="text-white/60 group-hover:text-white/90 text-xl transition-colors duration-200" />
                   </div>
                   <div>
-                    <p className="text-white/60 text-sm">GitHub</p>
-                    <p className="text-white font-medium">rogerjove012005</p>
+                    <p className="text-white/40 text-xs font-extralight tracking-wider uppercase">GitHub</p>
+                    <p className="text-white/80 font-extralight text-sm">rogerjove012005</p>
                   </div>
                 </motion.a>
               </div>
@@ -105,7 +108,7 @@ export default function Contact() {
           </motion.div>
 
           <motion.form
-            className="space-y-6 glass rounded-2xl p-8 border border-white/10"
+            className="space-y-6 rounded-lg p-8 border border-white/5 bg-black/30"
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -113,7 +116,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="name"
-                className="block text-white/80 mb-2 font-medium"
+                className="block text-white/60 mb-2 font-extralight text-sm tracking-wider uppercase"
               >
                 {t.contact.name}
               </label>
@@ -121,7 +124,7 @@ export default function Contact() {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all placeholder:text-white/30"
+                className="w-full px-4 py-3 border border-white/10 rounded-lg text-white/90 bg-black/30 focus:outline-none focus:border-white/30 focus:bg-white/[0.02] transition-all placeholder:text-white/30 font-extralight"
                 required
                 placeholder={t.contact.namePlaceholder}
               />
@@ -129,7 +132,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-white/80 mb-2 font-medium"
+                className="block text-white/60 mb-2 font-extralight text-sm tracking-wider uppercase"
               >
                 Email
               </label>
@@ -137,7 +140,7 @@ export default function Contact() {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 transition-all placeholder:text-white/30"
+                className="w-full px-4 py-3 border border-white/10 rounded-lg text-white/90 bg-black/30 focus:outline-none focus:border-white/30 focus:bg-white/[0.02] transition-all placeholder:text-white/30 font-extralight"
                 required
                 placeholder={t.contact.emailPlaceholder}
               />
@@ -145,7 +148,7 @@ export default function Contact() {
             <div>
               <label
                 htmlFor="message"
-                className="block text-white/80 mb-2 font-medium"
+                className="block text-white/60 mb-2 font-extralight text-sm tracking-wider uppercase"
               >
                 {t.contact.message}
               </label>
@@ -153,16 +156,17 @@ export default function Contact() {
                 id="message"
                 name="message"
                 rows={5}
-                className="w-full px-4 py-3 glass border border-white/10 rounded-xl text-white bg-black/30 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/50 resize-none transition-all placeholder:text-white/30"
+                className="w-full px-4 py-3 border border-white/10 rounded-lg text-white/90 bg-black/30 focus:outline-none focus:border-white/30 focus:bg-white/[0.02] resize-none transition-all placeholder:text-white/30 font-extralight"
                 required
                 placeholder={t.contact.messagePlaceholder}
               />
             </div>
             <motion.button
               type="submit"
-              className="w-full px-8 py-4 bg-gradient-blue text-white rounded-xl font-semibold overflow-hidden relative group shadow-lg shadow-primary-500/20"
-              whileHover={{ scale: 1.02, y: -2, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.3)' }}
+              className="w-full px-8 py-4 text-white/90 rounded-lg font-extralight tracking-wider uppercase overflow-hidden relative group border border-white/20 bg-white/[0.02] hover:bg-white/[0.05] transition-all"
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
+              style={{ willChange: 'transform' }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 {t.contact.sendMessage}
@@ -173,7 +177,6 @@ export default function Contact() {
                   →
                 </motion.span>
               </span>
-              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </motion.button>
           </motion.form>
         </div>

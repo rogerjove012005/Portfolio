@@ -15,7 +15,7 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="py-20 px-4 relative"
+      className="py-20 px-4 relative bg-black"
     >
       <div className="container mx-auto max-w-6xl">
         <motion.div
@@ -25,7 +25,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass-blue px-4 py-2 rounded-full mb-4 border border-primary-500/30"
+            className="inline-block text-sm md:text-base text-white/40 font-extralight tracking-[0.3em] uppercase px-4 py-2 mb-4 border border-white/10"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -33,15 +33,15 @@ export default function About() {
             {t.about.badge}
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-6xl font-bold text-white mb-4"
+            className="text-4xl md:text-6xl font-extralight text-white/90 mb-4 tracking-[0.05em]"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            {t.about.title} <span className="gradient-text-blue">{t.about.titleHighlight}</span>
+            {t.about.title} <span className="text-white">{t.about.titleHighlight}</span>
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
+            className="w-24 h-px bg-white/30 mx-auto"
             initial={{ width: 0 }}
             animate={inView ? { width: 96 } : {}}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -56,21 +56,14 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-blue rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
-              <div className="relative glass rounded-2xl p-8 h-96 flex flex-col items-center justify-center overflow-hidden border border-white/10">
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-primary-600/15 to-primary-700/20"></div>
-                <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary-500/10 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-primary-600/10 to-transparent"></div>
-                
+              <div className="relative rounded-lg p-8 h-96 flex flex-col items-center justify-center overflow-hidden border border-white/5 bg-black/30">
                 <motion.div
-                  className="relative z-10 text-8xl"
+                  className="relative z-10 text-8xl opacity-30"
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
                 >
                   👨‍💻
                 </motion.div>
-                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-primary-500/10 via-primary-600/5 to-transparent"></div>
               </div>
             </div>
           </motion.div>
@@ -81,48 +74,46 @@ export default function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="relative glass rounded-2xl p-8 space-y-5 border border-white/10 overflow-hidden">
-              {/* Gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-primary-600/15 to-primary-700/10"></div>
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-600/5 rounded-full blur-3xl"></div>
+            <div className="relative rounded-lg p-8 space-y-5 border border-white/5 bg-black/30 overflow-hidden">
+              <div className="absolute inset-0 bg-white/[0.01]"></div>
               
               <div className="relative z-10 space-y-5">
-                <p className="text-white/90 text-lg leading-relaxed">
-                  {t.about.description1} <span className="text-primary-400 font-semibold">{t.about.description1Highlight}</span> {t.about.description1Rest}
+                <p className="text-white/70 text-base leading-relaxed font-extralight">
+                  {t.about.description1} <span className="text-white/90">{t.about.description1Highlight}</span> {t.about.description1Rest}
                 </p>
-                <p className="text-white/90 text-lg leading-relaxed">
-                  {t.about.description2} <span className="text-primary-300 font-semibold">{t.about.description2Highlight}</span> {t.about.description2Rest} <span className="text-primary-400 font-semibold">{t.about.description2Highlight2}</span> {t.about.description2Rest2}
+                <p className="text-white/70 text-base leading-relaxed font-extralight">
+                  {t.about.description2} <span className="text-white/90">{t.about.description2Highlight}</span> {t.about.description2Rest} <span className="text-white/90">{t.about.description2Highlight2}</span> {t.about.description2Rest2}
                 </p>
-                <div className="pt-4 border-t border-white/10">
-                  <p className="text-white/70 text-sm mb-2 font-semibold">📍 {t.about.location}</p>
-                  <p className="text-white/80">Barcelona, Spain</p>
+                <div className="pt-4 border-t border-white/5">
+                  <p className="text-white/40 text-xs mb-2 font-extralight tracking-wider uppercase">📍 {t.about.location}</p>
+                  <p className="text-white/70 font-extralight text-sm">Barcelona, Spain</p>
                 </div>
-                <div className="pt-2 border-t border-white/10">
-                  <p className="text-white/70 text-sm mb-2 font-semibold">🌐 {t.about.languages}</p>
+                <div className="pt-2 border-t border-white/5">
+                  <p className="text-white/40 text-xs mb-2 font-extralight tracking-wider uppercase">🌐 {t.about.languages}</p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-white/80 text-sm">Catalan (Native)</span>
-                    <span className="text-white/40">•</span>
-                    <span className="text-white/80 text-sm">Spanish (Native)</span>
-                    <span className="text-white/40">•</span>
-                    <span className="text-white/80 text-sm">English (C1 Advanced - 2023)</span>
+                    <span className="text-white/60 text-sm font-extralight">Catalan (Native)</span>
+                    <span className="text-white/20">•</span>
+                    <span className="text-white/60 text-sm font-extralight">Spanish (Native)</span>
+                    <span className="text-white/20">•</span>
+                    <span className="text-white/60 text-sm font-extralight">English (C1 Advanced - 2023)</span>
                   </div>
                 </div>
               </div>
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-white font-semibold text-lg">{t.about.technologies}</h3>
+              <h3 className="text-white/80 font-extralight text-lg tracking-wider uppercase">{t.about.technologies}</h3>
               <div className="flex flex-wrap gap-3">
                 {['HTML', 'CSS', 'Java', 'PHP', 'MySQL', 'Kotlin', 'Python', 'PySpark', 'Jupyter', 'Github', 'XML', 'Linux', 'React', 'Next.js'].map(
                   (item, index) => (
                     <motion.span
                       key={item}
-                      className="glass-blue px-4 py-2 text-primary-300 rounded-full text-sm font-medium border border-primary-500/30"
+                      className="px-4 py-2 text-white/50 rounded-full text-xs font-extralight tracking-wider uppercase border border-white/10 bg-black/30 hover:border-white/20 hover:text-white/70 transition-all"
                       initial={{ opacity: 0, scale: 0 }}
                       animate={inView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ delay: 0.6 + index * 0.05, type: "spring" }}
-                      whileHover={{ scale: 1.1, y: -2, borderColor: 'rgba(59, 130, 246, 0.5)' }}
+                      transition={{ delay: 0.6 + index * 0.05 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      style={{ willChange: 'transform' }}
                     >
                       {item}
                     </motion.span>

@@ -359,71 +359,59 @@ export default function Hero() {
                   href={button.href}
                   className="group block"
                 >
-                  <motion.div 
-                    className="relative overflow-hidden py-6 border-l border-white/5 group-hover:border-white/20 transition-all duration-500"
-                    whileHover={{ 
-                      x: 6,
-                      paddingLeft: '1.5rem',
+                  <div 
+                    className="relative overflow-hidden py-6 border-l border-white/5 group-hover:border-white/20"
+                    style={{
+                      willChange: 'transform',
+                      transform: 'translateZ(0)',
                     }}
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   >
-                    {/* Elegant vertical line that extends on hover */}
-                    <motion.div
-                      className="absolute left-0 top-0 bottom-0 w-px bg-white/30"
-                      initial={{ height: 0, top: '50%' }}
-                      whileHover={{ height: '100%', top: 0 }}
-                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    {/* Elegant vertical line that extends on hover - optimized with scaleY */}
+                    <div
+                      className="absolute left-0 top-0 bottom-0 w-px bg-white/30 origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                      style={{
+                        willChange: 'transform',
+                      }}
                     />
                     
-                    {/* Subtle background glow on hover */}
-                    <motion.div
-                      className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.02] transition-colors duration-500"
+                    {/* Subtle background glow on hover - CSS only */}
+                    <div
+                      className="absolute inset-0 bg-white/0 group-hover:bg-white/[0.02] transition-colors duration-200 ease-out"
                     />
                     
-                    <div className="flex items-center justify-between pl-8 relative z-10">
-                      <motion.span 
-                        className="text-sm md:text-base font-extralight text-white/45 tracking-[0.3em] uppercase group-hover:text-white/90 transition-all duration-500"
-                        whileHover={{ 
-                          x: 6,
-                          letterSpacing: '0.35em',
+                    <div 
+                      className="flex items-center justify-between pl-8 relative z-10 group-hover:translate-x-[6px] transition-transform duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                      style={{
+                        willChange: 'transform',
+                      }}
+                    >
+                      <span 
+                        className="text-sm md:text-base font-extralight text-white/45 tracking-[0.3em] uppercase group-hover:text-white/90 transition-colors duration-200 ease-out"
+                        style={{
+                          willChange: 'color',
                         }}
-                        transition={{ duration: 0.3 }}
                       >
                         {button.label}
-                      </motion.span>
-                      <motion.span
-                        className="text-white/15 group-hover:text-white/50 text-xs font-extralight transition-all duration-500"
-                        whileHover={{ 
-                          x: 6,
-                          opacity: 0.7,
+                      </span>
+                      <span
+                        className="text-white/15 text-xs font-extralight group-hover:text-white group-hover:translate-x-2 group-hover:opacity-100 transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                        style={{
+                          willChange: 'transform, opacity',
                         }}
-                        transition={{ type: "spring", stiffness: 500, damping: 25 }}
                       >
                         →
-                      </motion.span>
+                      </span>
                     </div>
                     
-                    {/* Elegant bottom accent line */}
-                    <motion.div
-                      className="absolute bottom-0 left-8 right-0 h-px bg-gradient-to-r from-white/0 via-white/15 to-white/0"
-                      initial={{ width: 0, opacity: 0 }}
-                      whileHover={{ width: 'calc(100% - 2rem)', opacity: 1 }}
-                      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                    />
-                    
-                    {/* Subtle shine effect that moves on hover */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0"
-                      whileHover={{ 
-                        opacity: 1,
-                        x: ['-100%', '100%'],
-                      }}
-                      transition={{ 
-                        opacity: { duration: 0.3 },
-                        x: { duration: 0.8, ease: "easeInOut" }
+                    {/* Elegant bottom accent line - optimized with scaleX */}
+                    <div
+                      className="absolute bottom-0 left-8 h-px bg-gradient-to-r from-white/0 via-white/15 to-white/0 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                      style={{
+                        width: 'calc(100% - 2rem)',
+                        willChange: 'transform',
                       }}
                     />
-                  </motion.div>
+                  </div>
                 </Link>
               </motion.div>
             ))}

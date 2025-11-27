@@ -28,7 +28,7 @@ export default function Projects() {
   }))
 
   return (
-    <section id="projects" ref={ref} className="py-20 px-4 relative">
+    <section id="projects" ref={ref} className="py-20 px-4 relative bg-black">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           className="text-center mb-16"
@@ -37,7 +37,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
         >
           <motion.span
-            className="inline-block text-sm md:text-base text-primary-400 font-semibold tracking-wider uppercase glass-blue px-4 py-2 rounded-full mb-4 border border-primary-500/30"
+            className="inline-block text-sm md:text-base text-white/40 font-extralight tracking-[0.3em] uppercase px-4 py-2 mb-4 border border-white/10"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -45,15 +45,15 @@ export default function Projects() {
             {t.projects.badge}
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-6xl font-bold text-white mb-4"
+            className="text-4xl md:text-6xl font-extralight text-white/90 mb-4 tracking-[0.05em]"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            {t.projects.title} <span className="gradient-text-blue">{t.projects.titleHighlight}</span>
+            {t.projects.title} <span className="text-white">{t.projects.titleHighlight}</span>
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-blue mx-auto rounded-full"
+            className="w-24 h-px bg-white/30 mx-auto"
             initial={{ width: 0 }}
             animate={inView ? { width: 96 } : {}}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -64,43 +64,44 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              className="group relative glass rounded-2xl overflow-hidden border border-white/10"
+              className="group relative rounded-lg overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-200 bg-black/30"
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15, type: "spring" }}
-              whileHover={{ y: -15, borderColor: 'rgba(59, 130, 246, 0.3)' }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{ y: -10 }}
+              style={{ willChange: 'transform' }}
             >
-              <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
               
-              <div className="relative h-64 bg-gradient-blue overflow-hidden">
+              <div className="relative h-64 bg-black/50 overflow-hidden border-b border-white/5">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.span
-                    className="text-white text-6xl"
-                    animate={{ scale: [1, 1.2, 1] }}
+                    className="text-white/30 text-6xl"
+                    animate={{ scale: [1, 1.1, 1] }}
                     transition={{ repeat: Infinity, duration: 3 }}
                   >
                     🚀
                   </motion.span>
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="glass-strong px-3 py-1 rounded-full text-xs text-white font-semibold border border-white/20">
+                  <span className="px-3 py-1 rounded-full text-xs text-white/60 font-extralight tracking-wider uppercase border border-white/10 bg-black/30">
                     {t.projects.featured}
                   </span>
                 </div>
               </div>
               
               <div className="relative p-6">
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary-400 transition-colors">
+                <h3 className="text-2xl font-extralight text-white/90 mb-3 group-hover:text-white transition-colors duration-200 tracking-[0.05em]">
                   {project.title}
                 </h3>
-                <p className="text-white/70 mb-6 leading-relaxed">{project.description}</p>
+                <p className="text-white/50 mb-6 leading-relaxed text-sm">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="glass-blue px-3 py-1 text-primary-300 rounded-full text-xs font-medium border border-primary-500/30"
+                      className="px-3 py-1 text-white/50 rounded-full text-xs font-extralight tracking-wider uppercase border border-white/10 bg-black/30"
                     >
                       {tech}
                     </span>
@@ -112,23 +113,25 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 glass px-4 py-2 rounded-lg text-white/70 hover:text-white transition-all group/link border border-white/10"
-                    whileHover={{ scale: 1.05, x: 5 }}
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg text-white/60 hover:text-white/90 transition-all group/link border border-white/10 bg-black/30"
+                    whileHover={{ x: 5 }}
                     whileTap={{ scale: 0.95 }}
+                    style={{ willChange: 'transform' }}
                   >
-                    <FaGithub className="group-hover/link:rotate-12 transition-transform" />
-                    <span className="font-medium">{t.projects.code}</span>
+                    <FaGithub className="group-hover/link:scale-110 transition-transform duration-200" />
+                    <span className="font-extralight text-sm tracking-wider uppercase">{t.projects.code}</span>
                   </motion.a>
                   <motion.a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 bg-gradient-blue px-4 py-2 rounded-lg text-white font-medium transition-all group/link shadow-lg shadow-primary-500/20"
-                    whileHover={{ scale: 1.05, x: 5, boxShadow: '0 10px 30px rgba(59, 130, 246, 0.3)' }}
+                    className="flex items-center space-x-2 px-4 py-2 rounded-lg text-white/80 hover:text-white transition-all group/link border border-white/20 bg-white/[0.02]"
+                    whileHover={{ x: 5 }}
                     whileTap={{ scale: 0.95 }}
+                    style={{ willChange: 'transform' }}
                   >
-                    <FaExternalLinkAlt className="group-hover/link:rotate-12 transition-transform" />
-                    <span>{t.projects.demo}</span>
+                    <FaExternalLinkAlt className="group-hover/link:scale-110 transition-transform duration-200" />
+                    <span className="font-extralight text-sm tracking-wider uppercase">{t.projects.demo}</span>
                   </motion.a>
                 </div>
               </div>
