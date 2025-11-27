@@ -8,8 +8,10 @@ import Link from 'next/link'
 export default function Hero() {
   const { t } = useLanguage()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mouseAbsolutePosition, setMouseAbsolutePosition] = useState({ x: 0, y: 0 })
   const [isHoveringParticles, setIsHoveringParticles] = useState(false)
   const [justReleasedHover, setJustReleasedHover] = useState(false)
+  const [particleCenter, setParticleCenter] = useState({ x: 0, y: 0 })
   
   const navButtons = [
     { label: t.hero.navAbout, href: '/about' },
@@ -33,6 +35,10 @@ export default function Hero() {
         x: (e.clientX / window.innerWidth) * 100,
         y: (e.clientY / window.innerHeight) * 100,
       })
+      setMouseAbsolutePosition({
+        x: e.clientX,
+        y: e.clientY,
+      })
     }
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
@@ -42,6 +48,34 @@ export default function Hero() {
   const particleCount = 300 // 200-400 particles for sparse elegant distribution
   const baseRadius = 250 // Radius 250-350px
   const expandedRadius = 350
+
+  // Calculate distance-based hover detection for particles
+  useEffect(() => {
+    const checkParticleHover = () => {
+      // Calculate center position of particle circle (right side, centered vertically)
+      const centerX = window.innerWidth - 8 - 400 // right-8 (8px) - half of 800px container
+      const centerY = window.innerHeight / 2
+      
+      // Calculate distance from mouse to center
+      const dx = mouseAbsolutePosition.x - centerX
+      const dy = mouseAbsolutePosition.y - centerY
+      const distance = Math.sqrt(dx * dx + dy * dy)
+      
+      // Detection threshold: base radius (250px) + expanded radius difference (100px) + additional 125px buffer
+      const detectionRadius = baseRadius + (expandedRadius - baseRadius) + 125
+      
+      if (distance <= detectionRadius && !isHoveringParticles) {
+        setIsHoveringParticles(true)
+        setJustReleasedHover(false)
+      } else if (distance > detectionRadius && isHoveringParticles) {
+        setIsHoveringParticles(false)
+        setJustReleasedHover(true)
+        setTimeout(() => setJustReleasedHover(false), 800)
+      }
+    }
+    
+    checkParticleHover()
+  }, [mouseAbsolutePosition, isHoveringParticles, baseRadius, expandedRadius])
   const particleColors = [
     '#ffffff', // Pure white
     '#f8f9fa', // Very light gray-white
@@ -71,8 +105,8 @@ export default function Hero() {
     // Some particles slightly blurred for depth (randomly)
     const hasBlur = index % 7 === 0 || index % 11 === 0
     
-    // Varying opacity for depth
-    const opacity = 0.6 + (index % 3) * 0.15
+    // Varying opacity for depth - increased for more brightness
+    const opacity = 0.75 + (index % 3) * 0.15
     
     return {
       angle,
@@ -94,7 +128,7 @@ export default function Hero() {
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: `radial-gradient(circle 600px at ${mousePosition.x}% ${mousePosition.y}%, rgba(255,255,255,0.03) 0%, transparent 50%)`,
+          background: `radial-gradient(circle 500px at ${mousePosition.x}% ${mousePosition.y}%, rgba(255,255,255,0.010) 0%, transparent 50%)`,
         }}
         transition={{ type: "spring", stiffness: 50, damping: 20 }}
       />
@@ -162,17 +196,7 @@ export default function Hero() {
 
       {/* Minimalist Scattered Particle Field - Right side */}
       <div 
-        className="absolute right-8 top-1/2 -translate-y-1/2 pointer-events-auto"
-        onMouseEnter={() => {
-          setIsHoveringParticles(true)
-          setJustReleasedHover(false)
-        }}
-        onMouseLeave={() => {
-          setIsHoveringParticles(false)
-          setJustReleasedHover(true)
-          // Reset the animation flag after animation completes
-          setTimeout(() => setJustReleasedHover(false), 800)
-        }}
+        className="absolute right-8 top-1/2 -translate-y-1/2 pointer-events-none"
       >
         <motion.div 
           className="relative w-[800px] h-[800px]"
@@ -209,14 +233,14 @@ export default function Hero() {
                   background: props.color,
                   opacity: props.opacity,
                   filter: props.hasBlur ? 'blur(0.5px)' : 'none',
-                  boxShadow: `0 0 ${props.size * 2}px ${props.color}40`,
+                  boxShadow: `0 0 ${props.size * 3}px ${props.color}60, 0 0 ${props.size * 1.5}px ${props.color}80`,
                 }}
                 animate={{
                   x: Math.cos(props.radian) * currentRadius,
                   y: Math.sin(props.radian) * currentRadius,
                   opacity: justReleasedHover 
                     ? [props.opacity, props.opacity * 1.5, props.opacity * 0.3, props.opacity]
-                    : [props.opacity * 0.5, props.opacity, props.opacity * 0.5],
+                    : [props.opacity * 0.65, props.opacity, props.opacity * 0.65],
                   scale: justReleasedHover
                     ? [1, 1.5 + (i % 3) * 0.2, 1]
                     : [0.9, 1.2, 0.9],
