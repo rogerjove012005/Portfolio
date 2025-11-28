@@ -6,6 +6,7 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const technologies = [
+  ['Python', 'Pandas', 'PySpark', 'SQLite', 'Docker', 'Jupyter'],
   ['React', 'Next.js', 'Node.js', 'MongoDB'],
   ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
   ['Next.js', 'Python', 'PostgreSQL', 'Chart.js'],
@@ -22,9 +23,15 @@ export default function Projects() {
   const projects = t.projects.items.map((item, index) => ({
     ...item,
     technologies: technologies[index],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'https://via.placeholder.com/600x400',
+    github: index === 0 
+      ? 'https://github.com/rogerjove012005/gym-lifters-data-warehouse_CSV.git'
+      : 'https://github.com',
+    demo: index === 0
+      ? 'https://github.com/rogerjove012005/gym-lifters-data-warehouse_CSV'
+      : 'https://demo.com',
+    image: index === 0
+      ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80'
+      : 'https://via.placeholder.com/600x400',
   }))
 
   return (
@@ -74,16 +81,27 @@ export default function Projects() {
               <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
               
               <div className="relative h-64 bg-black/50 overflow-hidden border-b border-white/5">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.span
-                    className="text-white/30 text-6xl"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ repeat: Infinity, duration: 3 }}
-                  >
-                    🚀
-                  </motion.span>
-                </div>
+                {project.image && project.image !== 'https://via.placeholder.com/600x400' ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                {!project.image || project.image === 'https://via.placeholder.com/600x400' ? (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <motion.span
+                      className="text-white/30 text-6xl"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ repeat: Infinity, duration: 3 }}
+                    >
+                      🚀
+                    </motion.span>
+                  </div>
+                ) : null}
                 <div className="absolute top-4 right-4">
                   <span className="px-3 py-1 rounded-full text-xs text-white/60 font-extralight tracking-wider uppercase border border-white/10 bg-black/30">
                     {t.projects.featured}

@@ -104,6 +104,10 @@ export const translations = {
       featured: 'Featured',
       items: [
         {
+          title: 'Weightlifting Data Warehouse ETL Pipeline',
+          description: 'Comprehensive ETL pipeline for building a dimensional data warehouse from weightlifting competition data. Transforms raw CSV data into a structured star schema using Pandas and PySpark, optimized for analytical queries.',
+        },
+        {
           title: 'E-commerce Platform',
           description: 'Complete e-commerce platform with shopping cart, payment system and admin panel.',
         },
@@ -244,6 +248,10 @@ export const translations = {
       demo: 'Demo',
       featured: 'Destacado',
       items: [
+        {
+          title: 'Weightlifting Data Warehouse ETL Pipeline',
+          description: 'Pipeline ETL completo para construir un data warehouse dimensional a partir de datos de competiciones de halterofilia. Transforma datos CSV en bruto en un modelo de esquema estrella usando Pandas y PySpark, optimizado para consultas analíticas.',
+        },
         {
           title: 'Plataforma E-commerce',
           description: 'Plataforma de comercio electrónico completa con carrito de compras, sistema de pagos y panel de administración.',

@@ -12,8 +12,13 @@ import {
   SiGit,
   SiPython,
   SiMysql,
+  SiPandas,
+  SiApachespark,
+  SiJupyter,
+  SiAmazonaws,
+  SiLaravel,
 } from 'react-icons/si'
-import { FaJava, FaSwift } from 'react-icons/fa'
+import { FaJava, FaSwift, FaTerminal } from 'react-icons/fa'
 import { SiKotlin } from 'react-icons/si'
 
 const skills = [
@@ -28,13 +33,20 @@ const skills = [
   { name: 'Kotlin', icon: SiKotlin, level: 70, category: 'mobile' },
   { name: 'Java', icon: FaJava, level: 75, category: 'backend' },
   { name: 'Python', icon: SiPython, level: 75, category: 'backend' },
+  { name: 'Pandas', icon: SiPandas, level: 75, category: 'data' },
+  { name: 'PySpark', icon: SiApachespark, level: 70, category: 'data' },
+  { name: 'JupyterLab', icon: SiJupyter, level: 80, category: 'data' },
+  { name: 'AWS', icon: SiAmazonaws, level: 70, category: 'cloud' },
+  { name: 'Laravel', icon: SiLaravel, level: 75, category: 'backend' },
+  { name: 'Bash', icon: FaTerminal, level: 80, category: 'devops' },
 ]
 
 const categories = [
-  { name: 'Backend', icon: '⚙️', skills: ['Node.js', 'Java', 'Python'] },
+  { name: 'Backend', icon: '⚙️', skills: ['Node.js', 'Java', 'Python', 'Laravel'] },
   { name: 'Bases de Datos', icon: '🗄️', skills: ['MongoDB', 'SQL', 'PostgreSQL'] },
+  { name: 'Data Science', icon: '📊', skills: ['Pandas', 'PySpark', 'JupyterLab'] },
+  { name: 'Cloud & DevOps', icon: '☁️', skills: ['AWS', 'Docker', 'Bash', 'Git', 'GitHub'] },
   { name: 'Mobile', icon: '📱', skills: ['Swift', 'Kotlin'] },
-  { name: 'DevOps & Tools', icon: '🛠️', skills: ['Docker', 'Git', 'GitHub'] },
 ]
 
 export default function Skills() {
@@ -53,35 +65,54 @@ export default function Skills() {
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        {/* Header Section - Enhanced */}
+        {/* Elegant Introduction Section */}
         <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.span
-            className="inline-block text-xs md:text-sm text-white/40 font-extralight tracking-[0.3em] uppercase px-6 py-3 mb-8 border border-white/10 bg-black/40 backdrop-blur-sm"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            {t.skills.badge}
-          </motion.span>
-          <motion.h2
-            className="text-5xl md:text-7xl lg:text-8xl font-extralight text-white/90 mb-8 tracking-[0.05em]"
+          <motion.p
+            className="text-white/60 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-8"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
           >
-            {t.skills.title} <span className="text-white">{t.skills.titleHighlight}</span>
-          </motion.h2>
+            Un conjunto diverso de tecnologías y herramientas que domino para crear soluciones innovadoras y eficientes.
+          </motion.p>
           <motion.div
-            className="w-32 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto"
-            initial={{ width: 0, opacity: 0 }}
-            animate={inView ? { width: 128, opacity: 1 } : {}}
-            transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          />
+            className="flex items-center justify-center gap-8 md:gap-12 flex-wrap"
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-extralight text-white/90 mb-1">
+                {skills.length}+
+              </div>
+              <div className="text-white/50 text-sm font-extralight tracking-wider uppercase">
+                Tecnologías
+              </div>
+            </div>
+            <div className="w-px h-12 bg-white/10"></div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-extralight text-white/90 mb-1">
+                {categories.length}
+              </div>
+              <div className="text-white/50 text-sm font-extralight tracking-wider uppercase">
+                Áreas
+              </div>
+            </div>
+            <div className="w-px h-12 bg-white/10"></div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-extralight text-white/90 mb-1">
+                {Math.round(skills.reduce((sum, skill) => sum + skill.level, 0) / skills.length)}%
+              </div>
+              <div className="text-white/50 text-sm font-extralight tracking-wider uppercase">
+                Promedio
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Skills Grid - Enhanced Design */}
@@ -174,13 +205,13 @@ export default function Skills() {
           className="mt-24"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 1.1, duration: 0.6 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
           >
             <h3 className="text-2xl md:text-3xl font-extralight text-white/80 mb-4 tracking-wide">
               Áreas de Especialización
@@ -202,7 +233,7 @@ export default function Skills() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ 
-                    delay: 1.2 + index * 0.1, 
+                    delay: 0.8 + index * 0.1, 
                     duration: 0.6,
                     ease: [0.22, 1, 0.36, 1]
                   }}
@@ -250,7 +281,7 @@ export default function Skills() {
                               initial={{ width: 0 }}
                               animate={inView ? { width: `${avgLevel}%` } : {}}
                               transition={{ 
-                                delay: 1.3 + index * 0.1, 
+                                delay: 0.9 + index * 0.1, 
                                 duration: 1,
                                 ease: [0.22, 1, 0.36, 1]
                               }}
@@ -271,7 +302,7 @@ export default function Skills() {
           className="mt-20 text-center"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 1.8, duration: 0.8 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
         >
           <div className="inline-block w-32 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         </motion.div>
