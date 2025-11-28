@@ -8,9 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 const technologies = [
   ['Python', 'Pandas', 'PySpark', 'SQLite', 'Docker', 'Jupyter'],
   ['Python', 'TensorFlow', 'PyTorch', 'NumPy', 'Keras', 'Jupyter'],
-  ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-  ['Next.js', 'Python', 'PostgreSQL', 'Chart.js'],
-  ['React', 'OpenWeather API', 'Leaflet', 'CSS3'],
+  ['Laravel', 'PHP', 'MySQL', 'Blade', 'Stripe', 'Docker'],
 ]
 
 export default function Projects() {
@@ -25,14 +23,20 @@ export default function Projects() {
     technologies: technologies[index],
     github: index === 0 
       ? 'https://github.com/rogerjove012005/gym-lifters-data-warehouse_CSV.git'
+      : index === 2
+      ? 'https://github.com/rogerjove012005/Plataforma_Saas_Laravel.git'
       : 'https://github.com',
     demo: index === 0
       ? 'https://github.com/rogerjove012005/gym-lifters-data-warehouse_CSV'
+      : index === 2
+      ? 'https://github.com/rogerjove012005/Plataforma_Saas_Laravel'
       : 'https://demo.com',
     image: index === 0
       ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80'
       : index === 1
       ? 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop&q=80'
+      : index === 2
+      ? 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop&q=80'
       : 'https://via.placeholder.com/600x400',
     isOngoing: index === 1,
   }))

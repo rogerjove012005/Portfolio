@@ -112,16 +112,8 @@ export const translations = {
           description: 'Advanced neural network implementation for data structure analysis and optimization. Deep learning model designed to understand and predict data structure patterns and performance metrics. (On Going)',
         },
         {
-          title: 'Task Management App',
-          description: 'Task management application with real-time collaboration, notifications and productivity analytics.',
-        },
-        {
-          title: 'Social Media Dashboard',
-          description: 'Analytical dashboard for social networks with real-time metrics, interactive charts and custom reports.',
-        },
-        {
-          title: 'Weather App',
-          description: 'Weather application with detailed forecasts, interactive maps and custom alerts.',
+          title: 'SaaS Platform with Laravel',
+          description: 'Multi-tenant SaaS platform built with Laravel. Features include subscription management, billing, payment integration, admin panel, and API RESTful. Complete solution for managing multiple organizations with isolated data and configurations.',
         },
       ],
     },
@@ -257,16 +249,8 @@ export const translations = {
           description: 'Implementación avanzada de red neuronal para análisis y optimización de estructuras de datos. Modelo de deep learning diseñado para entender y predecir patrones y métricas de rendimiento de estructuras de datos. (En Construcción)',
         },
         {
-          title: 'App de Gestión de Tareas',
-          description: 'Aplicación de gestión de tareas con colaboración en tiempo real, notificaciones y análisis de productividad.',
-        },
-        {
-          title: 'Dashboard de Redes Sociales',
-          description: 'Dashboard analítico para redes sociales con métricas en tiempo real, gráficos interactivos y reportes personalizados.',
-        },
-        {
-          title: 'App del Tiempo',
-          description: 'Aplicación meteorológica con pronósticos detallados, mapas interactivos y alertas personalizadas.',
+          title: 'Plataforma SaaS con Laravel',
+          description: 'Plataforma SaaS multi-tenant desarrollada con Laravel. Incluye gestión de suscripciones, facturación, integración de pagos, panel de administración y API RESTful. Solución completa para gestionar múltiples organizaciones con datos y configuraciones aisladas.',
         },
       ],
     },
