@@ -67,13 +67,13 @@ export default function Skills() {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Elegant Introduction Section */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.p
-            className="text-white/60 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-8"
+            className="text-white/50 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-12"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -81,145 +81,231 @@ export default function Skills() {
             Un conjunto diverso de tecnologías y herramientas que domino para crear soluciones innovadoras y eficientes.
           </motion.p>
           <motion.div
-            className="flex items-center justify-center gap-8 md:gap-12 flex-wrap"
+            className="flex items-center justify-center gap-12 md:gap-16 flex-wrap"
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-extralight text-white/90 mb-1">
-                {skills.length}+
+              <div className="text-4xl md:text-5xl font-extralight text-white/95 mb-2 tabular-nums">
+                {skills.length}
               </div>
-              <div className="text-white/50 text-sm font-extralight tracking-wider uppercase">
+              <div className="text-white/40 text-xs font-extralight tracking-wider uppercase">
                 Tecnologías
               </div>
             </div>
-            <div className="w-px h-12 bg-white/10"></div>
+            <div className="w-px h-16 bg-white/10"></div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-extralight text-white/90 mb-1">
+              <div className="text-4xl md:text-5xl font-extralight text-white/95 mb-2 tabular-nums">
                 {categories.length}
               </div>
-              <div className="text-white/50 text-sm font-extralight tracking-wider uppercase">
+              <div className="text-white/40 text-xs font-extralight tracking-wider uppercase">
                 Áreas
               </div>
             </div>
-            <div className="w-px h-12 bg-white/10"></div>
+            <div className="w-px h-16 bg-white/10"></div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-extralight text-white/90 mb-1">
+              <div className="text-4xl md:text-5xl font-extralight text-white/95 mb-2 tabular-nums">
                 {Math.round(skills.reduce((sum, skill) => sum + skill.level, 0) / skills.length)}%
               </div>
-              <div className="text-white/50 text-sm font-extralight tracking-wider uppercase">
+              <div className="text-white/40 text-xs font-extralight tracking-wider uppercase">
                 Promedio
               </div>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Skills Grid - Enhanced Design */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-          {skills.map((skill, index) => {
-            const Icon = skill.icon
-            return (
-              <motion.div
-                key={skill.name}
-                className="group relative"
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.08,
-                  ease: [0.22, 1, 0.36, 1]
-                }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                style={{ willChange: 'transform' }}
-              >
-                {/* Card Container */}
-                <div className="relative h-full rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br from-black/40 to-black/20 backdrop-blur-sm transition-all duration-500 group-hover:border-white/30 group-hover:shadow-[0_8px_32px_rgba(255,255,255,0.1)]">
-                  {/* Animated background gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  {/* Glowing corner accents */}
-                  <div className="absolute top-0 left-0 w-24 h-px bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute top-0 left-0 w-px h-24 bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-0 right-0 w-24 h-px bg-gradient-to-l from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-0 right-0 w-px h-24 bg-gradient-to-t from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                  {/* Content */}
-                  <div className="relative z-10 p-8 flex flex-col items-center space-y-6">
-                    {/* Icon Container with reduced glow */}
+        {/* Charts Section - Elegant Design */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-24">
+          {/* Bar Chart - All Technologies */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="mb-6 pb-4 border-b border-white/10">
+              <h3 className="text-lg font-light text-white/70 tracking-wide uppercase text-xs mb-1">Nivel de Competencia</h3>
+              <p className="text-white/40 text-xs font-extralight">Tecnologías ordenadas por dominio</p>
+            </div>
+            <div className="space-y-5">
+              {skills
+                .sort((a, b) => b.level - a.level)
+                .map((skill, index) => {
+                  const Icon = skill.icon
+                  return (
                     <motion.div
-                      className="relative"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ willChange: 'transform' }}
+                      key={skill.name}
+                      className="group"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.3 + index * 0.03,
+                        ease: [0.22, 1, 0.36, 1]
+                      }}
                     >
-                      <div className="relative">
-                        <Icon className="text-5xl md:text-6xl text-white/70 group-hover:text-white/85 transition-colors duration-300" />
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
+                          <Icon className="text-xl text-white/50 group-hover:text-white/70 transition-colors duration-300" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-white/90 font-light text-sm">{skill.name}</span>
+                            <span className="text-white/40 text-xs font-extralight tabular-nums">{skill.level}%</span>
+                          </div>
+                          <div className="relative w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                            <motion.div
+                              className="h-full bg-white/30 rounded-full"
+                              initial={{ width: 0 }}
+                              animate={inView ? { width: `${skill.level}%` } : {}}
+                              transition={{
+                                duration: 1.2,
+                                delay: 0.4 + index * 0.04,
+                                ease: [0.22, 1, 0.36, 1]
+                              }}
+                            />
+                          </div>
+                        </div>
                       </div>
                     </motion.div>
+                  )
+                })}
+            </div>
+          </motion.div>
 
-                    {/* Skill Name */}
-                    <div className="text-center">
-                      <h3 className="text-white/90 font-light text-lg md:text-xl tracking-wide group-hover:text-white transition-colors duration-500 mb-2">
-                        {skill.name}
-                      </h3>
-                      <span className="text-white/50 font-extralight text-sm tracking-wider">
-                        {skill.level}%
-                      </span>
-                    </div>
-
-                    {/* Enhanced Progress Bar */}
-                    <div className="w-full space-y-2">
-                      <div className="relative w-full h-2 bg-black/60 rounded-full overflow-hidden border border-white/10">
-                        {/* Animated shimmer effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                        
-                        {/* Progress fill with gradient */}
-                        <motion.div
-                          className="relative h-full rounded-full overflow-hidden"
-                          initial={{ width: 0 }}
-                          animate={inView ? { width: `${skill.level}%` } : {}}
-                          transition={{ 
-                            duration: 1.5, 
-                            delay: index * 0.08 + 0.4, 
-                            ease: [0.22, 1, 0.36, 1] 
+          {/* Pie Chart - By Category */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="mb-6 pb-4 border-b border-white/10">
+              <h3 className="text-lg font-light text-white/70 tracking-wide uppercase text-xs mb-1">Distribución por Área</h3>
+              <p className="text-white/40 text-xs font-extralight">Proporción de tecnologías por categoría</p>
+            </div>
+            <div className="relative">
+              <div className="flex items-center justify-center mb-8">
+                <svg viewBox="0 0 200 200" className="w-64 h-64">
+                  {(() => {
+                    let currentAngle = -90
+                    const total = skills.length
+                    const colors = [
+                      'rgba(255, 255, 255, 0.7)',
+                      'rgba(255, 255, 255, 0.55)',
+                      'rgba(255, 255, 255, 0.45)',
+                      'rgba(255, 255, 255, 0.35)',
+                      'rgba(255, 255, 255, 0.28)',
+                    ]
+                    
+                    return categories.map((category, index) => {
+                      const categorySkills = skills.filter(skill => category.skills.includes(skill.name))
+                      const percentage = (categorySkills.length / total) * 100
+                      const angle = (percentage / 100) * 360
+                      
+                      const startAngle = currentAngle
+                      const endAngle = currentAngle + angle
+                      
+                      const x1 = 100 + 75 * Math.cos((startAngle * Math.PI) / 180)
+                      const y1 = 100 + 75 * Math.sin((startAngle * Math.PI) / 180)
+                      const x2 = 100 + 75 * Math.cos((endAngle * Math.PI) / 180)
+                      const y2 = 100 + 75 * Math.sin((endAngle * Math.PI) / 180)
+                      
+                      const largeArcFlag = angle > 180 ? 1 : 0
+                      
+                      const pathData = [
+                        `M 100 100`,
+                        `L ${x1} ${y1}`,
+                        `A 75 75 0 ${largeArcFlag} 1 ${x2} ${y2}`,
+                        `Z`
+                      ].join(' ')
+                      
+                      currentAngle += angle
+                      
+                      return (
+                        <motion.path
+                          key={category.name}
+                          d={pathData}
+                          fill={colors[index % colors.length]}
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                          transition={{
+                            duration: 1.2,
+                            delay: 0.6 + index * 0.15,
+                            ease: [0.22, 1, 0.36, 1]
                           }}
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/60 to-white/40"></div>
-                          <div className="absolute inset-0 bg-white/20 blur-sm"></div>
-                        </motion.div>
+                          className="hover:opacity-90 transition-opacity duration-300 cursor-pointer"
+                        />
+                      )
+                    })
+                  })()}
+                  {/* Center circle */}
+                  <circle cx="100" cy="100" r="40" fill="rgba(0, 0, 0, 0.8)" />
+                </svg>
+              </div>
+              
+              {/* Elegant Legend */}
+              <div className="space-y-3">
+                {categories.map((category, index) => {
+                  const categorySkills = skills.filter(skill => category.skills.includes(skill.name))
+                  const percentage = Math.round((categorySkills.length / skills.length) * 100)
+                  const colors = [
+                    'bg-white/70',
+                    'bg-white/55',
+                    'bg-white/45',
+                    'bg-white/35',
+                    'bg-white/28',
+                  ]
+                  
+                  return (
+                    <motion.div
+                      key={category.name}
+                      className="flex items-center gap-4 py-2 group"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.8 + index * 0.1,
+                        ease: [0.22, 1, 0.36, 1]
+                      }}
+                    >
+                      <div className={`w-3 h-3 rounded-sm ${colors[index % colors.length]} group-hover:scale-110 transition-transform duration-200`}></div>
+                      <div className="flex-1 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg">{category.icon}</span>
+                          <span className="text-white/80 font-light text-sm">{category.name}</span>
+                        </div>
+                        <span className="text-white/40 text-xs font-extralight tabular-nums">{percentage}%</span>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-              </motion.div>
-            )
-          })}
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Categories Section */}
         <motion.div
-          className="mt-24"
+          className="mt-32 pt-16 border-t border-white/10"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
-            className="text-center mb-12"
+            className="mb-12"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            <h3 className="text-2xl md:text-3xl font-extralight text-white/80 mb-4 tracking-wide">
+            <h3 className="text-lg font-light text-white/70 tracking-wide uppercase text-xs mb-2">
               Áreas de Especialización
             </h3>
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto"></div>
+            <div className="w-16 h-px bg-white/20"></div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {categories.map((category, index) => {
               const categorySkills = skills.filter(skill => category.skills.includes(skill.name))
               const avgLevel = Math.round(
@@ -233,62 +319,52 @@ export default function Skills() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ 
-                    delay: 0.8 + index * 0.1, 
+                    delay: 0.8 + index * 0.08, 
                     duration: 0.6,
                     ease: [0.22, 1, 0.36, 1]
                   }}
-                  whileHover={{ y: -4 }}
                 >
-                  <div className="relative h-full rounded-lg border border-white/10 bg-black/30 p-6 hover:border-white/20 hover:bg-black/40 transition-all duration-300">
-                    {/* Decorative corner */}
-                    <div className="absolute top-0 right-0 w-16 h-px bg-white/10"></div>
-                    <div className="absolute top-0 right-0 w-px h-16 bg-white/10"></div>
-                    
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="text-3xl">{category.icon}</span>
-                        <h4 className="text-white/90 font-light text-lg tracking-wide">
+                  <div className="relative h-full p-6 border-b border-white/10 hover:border-white/20 transition-colors duration-300">
+                    <div className="mb-4">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="text-2xl">{category.icon}</span>
+                        <h4 className="text-white/90 font-light text-base">
                           {category.name}
                         </h4>
                       </div>
-                      
-                      <div className="space-y-3">
-                        <div className="flex flex-wrap gap-2">
-                          {categorySkills.map((skill) => {
-                            const SkillIcon = skill.icon
-                            return (
-                              <div
-                                key={skill.name}
-                                className="flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-200"
-                              >
-                                <SkillIcon className="text-lg text-white/70" />
-                                <span className="text-white/60 text-xs font-extralight">
-                                  {skill.name}
-                                </span>
-                              </div>
-                            )
-                          })}
-                        </div>
-                        
-                        <div className="pt-2 border-t border-white/5">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="text-white/50 text-xs font-extralight">Nivel promedio</span>
-                            <span className="text-white/70 text-xs font-light">{avgLevel}%</span>
-                          </div>
-                          <div className="w-full h-1 bg-black/60 rounded-full overflow-hidden">
-                            <motion.div
-                              className="h-full bg-gradient-to-r from-white/30 to-white/50 rounded-full"
-                              initial={{ width: 0 }}
-                              animate={inView ? { width: `${avgLevel}%` } : {}}
-                              transition={{ 
-                                delay: 0.9 + index * 0.1, 
-                                duration: 1,
-                                ease: [0.22, 1, 0.36, 1]
-                              }}
-                            />
-                          </div>
-                        </div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-white/40 text-xs font-extralight">Promedio</span>
+                        <span className="text-white/70 text-sm font-light tabular-nums">{avgLevel}%</span>
                       </div>
+                      <div className="w-full h-0.5 bg-white/5 rounded-full overflow-hidden">
+                        <motion.div
+                          className="h-full bg-white/30 rounded-full"
+                          initial={{ width: 0 }}
+                          animate={inView ? { width: `${avgLevel}%` } : {}}
+                          transition={{ 
+                            delay: 0.9 + index * 0.08, 
+                            duration: 1,
+                            ease: [0.22, 1, 0.36, 1]
+                          }}
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {categorySkills.map((skill) => {
+                        const SkillIcon = skill.icon
+                        return (
+                          <div
+                            key={skill.name}
+                            className="flex items-center gap-1.5 px-2 py-1 rounded bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-200"
+                          >
+                            <SkillIcon className="text-sm text-white/60" />
+                            <span className="text-white/50 text-xs font-extralight">
+                              {skill.name}
+                            </span>
+                          </div>
+                        )
+                      })}
                     </div>
                   </div>
                 </motion.div>
