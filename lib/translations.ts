@@ -108,8 +108,8 @@ export const translations = {
           description: 'Comprehensive ETL pipeline for building a dimensional data warehouse from weightlifting competition data. Transforms raw CSV data into a structured star schema using Pandas and PySpark, optimized for analytical queries.',
         },
         {
-          title: 'E-commerce Platform',
-          description: 'Complete e-commerce platform with shopping cart, payment system and admin panel.',
+          title: 'Neural Network for Data Structure',
+          description: 'Advanced neural network implementation for data structure analysis and optimization. Deep learning model designed to understand and predict data structure patterns and performance metrics. (On Going)',
         },
         {
           title: 'Task Management App',
@@ -253,8 +253,8 @@ export const translations = {
           description: 'Pipeline ETL completo para construir un data warehouse dimensional a partir de datos de competiciones de halterofilia. Transforma datos CSV en bruto en un modelo de esquema estrella usando Pandas y PySpark, optimizado para consultas analíticas.',
         },
         {
-          title: 'Plataforma E-commerce',
-          description: 'Plataforma de comercio electrónico completa con carrito de compras, sistema de pagos y panel de administración.',
+          title: 'Red Neuronal para Estructura de Datos',
+          description: 'Implementación avanzada de red neuronal para análisis y optimización de estructuras de datos. Modelo de deep learning diseñado para entender y predecir patrones y métricas de rendimiento de estructuras de datos. (En Construcción)',
         },
         {
           title: 'App de Gestión de Tareas',

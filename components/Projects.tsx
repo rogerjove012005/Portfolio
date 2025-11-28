@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 
 const technologies = [
   ['Python', 'Pandas', 'PySpark', 'SQLite', 'Docker', 'Jupyter'],
-  ['React', 'Next.js', 'Node.js', 'MongoDB'],
+  ['Python', 'TensorFlow', 'PyTorch', 'NumPy', 'Keras', 'Jupyter'],
   ['React', 'TypeScript', 'Firebase', 'Tailwind CSS'],
   ['Next.js', 'Python', 'PostgreSQL', 'Chart.js'],
   ['React', 'OpenWeather API', 'Leaflet', 'CSS3'],
@@ -31,7 +31,10 @@ export default function Projects() {
       : 'https://demo.com',
     image: index === 0
       ? 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80'
+      : index === 1
+      ? 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=600&fit=crop&q=80'
       : 'https://via.placeholder.com/600x400',
+    isOngoing: index === 1,
   }))
 
   return (
@@ -78,6 +81,69 @@ export default function Projects() {
               whileHover={{ y: -10 }}
               style={{ willChange: 'transform' }}
             >
+              {/* Construction Tape Effect - X Pattern */}
+              {project.isOngoing && (
+                <>
+                  <div className="absolute inset-0 z-50 pointer-events-none overflow-hidden">
+                    {/* First diagonal tape (top-left to bottom-right) */}
+                    <div 
+                      className="absolute"
+                      style={{
+                        top: '50%',
+                        left: '50%',
+                        width: '141.42%',
+                        height: '11px',
+                        transform: 'translate(-50%, -50%) rotate(45deg)',
+                        transformOrigin: 'center center',
+                        backgroundImage: `repeating-linear-gradient(
+                          90deg,
+                          #FFD700 0px,
+                          #FFD700 12px,
+                          #000 12px,
+                          #000 24px
+                        )`,
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)',
+                      }}
+                    />
+                    {/* Second diagonal tape (top-right to bottom-left) - perpendicular */}
+                    <div 
+                      className="absolute"
+                      style={{
+                        top: '50%',
+                        left: '50%',
+                        width: '141.42%',
+                        height: '15px',
+                        transform: 'translate(-50%, -50%) rotate(-45deg)',
+                        transformOrigin: 'center center',
+                        backgroundImage: `repeating-linear-gradient(
+                          90deg,
+                          #FFD700 0px,
+                          #FFD700 12px,
+                          #000 12px,
+                          #000 24px
+                        )`,
+                        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.5)',
+                      }}
+                    />
+                    {/* Text overlay */}
+                    <div className="absolute top-4 left-0 right-0 flex items-center justify-center z-10">
+                      <motion.div
+                        className="px-4 py-2 bg-yellow-500/95 text-black font-bold text-xs md:text-sm tracking-wider uppercase shadow-lg border-2 border-black/30"
+                        animate={{ 
+                          boxShadow: [
+                            '0 0 0px rgba(255, 215, 0, 0.5)',
+                            '0 0 20px rgba(255, 215, 0, 0.8)',
+                            '0 0 0px rgba(255, 215, 0, 0.5)',
+                          ]
+                        }}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                      >
+                        🚧 ON GOING 🚧
+                      </motion.div>
+                    </div>
+                  </div>
+                </>
+              )}
               <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
               
               <div className="relative h-64 bg-black/50 overflow-hidden border-b border-white/5">
