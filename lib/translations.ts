@@ -120,8 +120,8 @@ export const translations = {
     // Contact
     contact: {
       badge: "Let's Talk",
-      title: 'Contact',
-      titleHighlight: 'Me',
+      title: 'Contact Me',
+      titleHighlight: '',
       contactInfo: 'Contact Information',
       name: 'Name',
       namePlaceholder: 'Your name',
@@ -257,8 +257,8 @@ export const translations = {
     // Contact
     contact: {
       badge: 'Hablemos',
-      title: 'Contácta',
-      titleHighlight: 'me',
+      title: 'Contáctame',
+      titleHighlight: '',
       contactInfo: 'Información de Contacto',
       name: 'Nombre',
       namePlaceholder: 'Tu nombre',
